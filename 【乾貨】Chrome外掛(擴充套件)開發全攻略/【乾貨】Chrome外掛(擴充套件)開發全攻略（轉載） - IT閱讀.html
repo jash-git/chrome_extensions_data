@@ -1,0 +1,1655 @@
+<!DOCTYPE html>
+<!-- saved from url=(0048)https://www.itread01.com/content/1541404923.html -->
+<html class="js" lang="zh-TW" prefix="og: http://ogp.me/ns#"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style class="vjs-styles-defaults">
+      .video-js {
+        width: 300px;
+        height: 150px;
+      }
+
+      .vjs-fluid {
+        padding-top: 56.25%
+      }
+    </style>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="profile" href="https://gmpg.org/xfn/11">
+    <title>【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載） - IT閱讀</title>
+<iframe src="./【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載） - IT閱讀_files/ga.html" style="display: none;"></iframe><script>document.documentElement.className = document.documentElement.className.replace("no-js","js");</script>
+<link href="./【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載） - IT閱讀_files/atom-one-dark.min.css" rel="stylesheet">
+<meta name="referrer" content="no-referrer-when-downgrade">
+<meta name="referrer" content="never">
+<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel="stylesheet" id="hueman-main-style-css" href="./【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載） - IT閱讀_files/main.info.css" type="text/css" media="all">
+<link href="./【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載） - IT閱讀_files/prettify.css" type="text/css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="./【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載） - IT閱讀_files/prettify(1).css">
+<style id="hueman-main-style-inline-css" type="text/css">
+body { font-family:'Source Sans Pro', Arial, sans-serif;font-size:1.00rem }@media only screen and (min-width: 720px) {
+        .nav > li { font-size:1.00rem; }
+      }::selection { background-color: #fca61b; }
+::-moz-selection { background-color: #fca61b; }a,.themeform label .required,#flexslider-featured .flex-direction-nav .flex-next:hover,#flexslider-featured .flex-direction-nav .flex-prev:hover,.post-hover:hover .post-title a,.post-title a:hover,.sidebar.s1 .post-nav li a:hover i,.content .post-nav li a:hover i,.post-related a:hover,.sidebar.s1 .widget_rss ul li a,#footer .widget_rss ul li a,.sidebar.s1 .widget_calendar a,#footer .widget_calendar a,.sidebar.s1 .alx-tab .tab-item-category a,.sidebar.s1 .alx-posts .post-item-category a,.sidebar.s1 .alx-tab li:hover .tab-item-title a,.sidebar.s1 .alx-tab li:hover .tab-item-comment a,.sidebar.s1 .alx-posts li:hover .post-item-title a,#footer .alx-tab .tab-item-category a,#footer .alx-posts .post-item-category a,#footer .alx-tab li:hover .tab-item-title a,#footer .alx-tab li:hover .tab-item-comment a,#footer .alx-posts li:hover .post-item-title a,.comment-tabs li.active a,.comment-awaiting-moderation,.child-menu a:hover,.child-menu .current_page_item > a,.wp-pagenavi a{ color: #fca61b; }.themeform input[type="submit"],.themeform button[type="submit"],.sidebar.s1 .sidebar-top,.sidebar.s1 .sidebar-toggle,#flexslider-featured .flex-control-nav li a.flex-active,.post-tags a:hover,.sidebar.s1 .widget_calendar caption,#footer .widget_calendar caption,.author-bio .bio-avatar:after,.commentlist li.bypostauthor > .comment-body:after,.commentlist li.comment-author-admin > .comment-body:after{ background-color: #fca61b; }.post-format .format-container { border-color: #fca61b; }.sidebar.s1 .alx-tabs-nav li.active a,#footer .alx-tabs-nav li.active a,.comment-tabs li.active a,.wp-pagenavi a:hover,.wp-pagenavi a:active,.wp-pagenavi span.current{ border-bottom-color: #fca61b!important; }.sidebar.s2 .post-nav li a:hover i,
+.sidebar.s2 .widget_rss ul li a,
+.sidebar.s2 .widget_calendar a,
+.sidebar.s2 .alx-tab .tab-item-category a,
+.sidebar.s2 .alx-posts .post-item-category a,
+.sidebar.s2 .alx-tab li:hover .tab-item-title a,
+.sidebar.s2 .alx-tab li:hover .tab-item-comment a,
+.sidebar.s2 .alx-posts li:hover .post-item-title a { color: #3bcfe2; }
+.sidebar.s2 .sidebar-top,.sidebar.s2 .sidebar-toggle,.post-comments,.jp-play-bar,.jp-volume-bar-value,.sidebar.s2 .widget_calendar caption{ background-color: #3bcfe2; }.sidebar.s2 .alx-tabs-nav li.active a { border-bottom-color: #3bcfe2; }
+.post-comments span:before { border-right-color: #3bcfe2; }
+      .search-expand,
+              #nav-topbar.nav-container { background-color: #303030}@media only screen and (min-width: 720px) {
+                #nav-topbar .nav ul { background-color: #303030; }
+              }.is-scrolled #header .nav-container.desktop-sticky,
+              .is-scrolled #header .search-expand { background-color: #303030; background-color: rgba(48,48,48,0.90) }.is-scrolled .topbar-transparent #nav-topbar.desktop-sticky .nav ul { background-color: #303030; background-color: rgba(48,48,48,0.95) }#header { background-color: #363944; }
+@media only screen and (min-width: 720px) {
+  #nav-header .nav ul { background-color: #363944; }
+}
+        .is-scrolled #header #nav-mobile { background-color: #454e5c; background-color: rgba(69,78,92,0.90) }body { background-color: #eaeaea; }
+		.entry-inner h1{ font-size:20px; font-weight:bold;}
+		.entry-inner h2,h3,h4{ font-size:18px; font-weight:bold;}
+</style>
+ 
+
+<link rel="stylesheet" id="hueman-font-awesome-css" href="./【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載） - IT閱讀_files/font-awesome.min.css" type="text/css" media="all">
+<script type="text/javascript">
+/* <![CDATA[ */
+var monsterinsights_frontend = {"js_events_tracking":"true","is_debug_mode":"false","download_extensions":"","inbound_paths":"","home_url":"https:\/\/www.itread01.com","track_download_as":"event","internal_label":"int","hash_tracking":"false"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載） - IT閱讀_files/frontend.min.js.下載"></script>
+<script type="text/javascript" src="./【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載） - IT閱讀_files/jquery.js.下載"></script>
+<script type="text/javascript" src="./【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載） - IT閱讀_files/jsjquery-migrate.min.js.下載"></script>
+<script src="./【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載） - IT閱讀_files/highlight.js.下載"></script>
+<link rel="stylesheet" type="text/css" href="./【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載） - IT閱讀_files/default.css">
+<meta name="generator" content="WordPress 4.8.2">
+<!--[if lt IE 9]>
+<script src="/img/css/js/html5shiv-printshiv.min.js"></script>
+<script src="/img/css/js/selectivizr.js"></script>
+<![endif]-->
+<style>.ios7.web-app-mode.has-fixed header{ background-color: rgba(45,53,63,.88);}</style></head>
+<body data-rsssl="1" class="post-template-default single single-post postid-43193 single-format-standard wp-custom-logo col-2cl full-width topbar-enabled header-desktop-sticky header-mobile-sticky chrome hu-smoothscroll">
+    <div id="wrapper">
+        <header id="header" class="specific-mobile-menu-on one-mobile-menu mobile_menu header-ads-desktop header-ads-mobile topbar-transparent no-header-img fixed-header-on" style="height: 175px; padding-top: 50px;">
+        <nav class="nav-container group mobile-menu mobile-sticky " id="nav-mobile" data-menu-id="header-1">
+  <div class="mobile-title-logo-in-header"><p class="site-title"><a class="custom-logo-link" href="https://www.itread01.com/" rel="home" title="首頁"><img src="./【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載） - IT閱讀_files/logo.png"></a></p>
+                </div>
+        <div class="ham__navbar-toggler-two collapsed" title="Menu" aria-expanded="false">
+          <div class="ham__navbar-span-wrapper">
+            <span class="line line-1"></span>
+            <span class="line line-2"></span>
+            <span class="line line-3"></span>
+          </div>
+        </div>
+            
+      <div class="nav-text"></div>
+      <div class="nav-wrap container">
+                  <ul class="nav container-inner group mobile-search">
+                            <li>
+                  <form class="searchform themeform" onsubmit="return searchKw(this)">
+	<div>
+		<input type="text" name="kw" class="search" onblur="if(this.value==&#39;&#39;)this.value=&#39;輸入關鍵字後搜尋&#39;;" onfocus="if(this.value==&#39;輸入關鍵字後搜尋&#39;)this.value=&#39;&#39;;" value="輸入關鍵字後搜尋">
+	</div>
+</form>    
+<script>function searchKw(c){var b=c.getElementsByTagName("input")[0],a=b.value.replace(/^\s+|\s+$/g,"");a=a.replace(/['"]/g,"");location.href="https://www.itread01.com/search/"+encodeURIComponent(a)+"";return false};</script>            </li>
+                      </ul>
+                <ul id="menu-top" class="nav container-inner group">
+                 <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-290"><a href="https://www.itread01.com/">首頁</a></li>
+				<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-290"><a href="https://www.itread01.com/%E7%A7%91%E6%8A%80/">科技</a></li>
+						  <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-290"><a href="https://www.itread01.com/info/">程式語言</a></li>
+ 
+</ul>      </div>
+</nav><!--/#nav-topbar-->  
+        <nav class="nav-container group desktop-menu desktop-sticky " id="nav-topbar" data-menu-id="header-2" style="max-width: 1903px;">
+    <div class="nav-text"></div>
+  <div class="topbar-toggle-down">
+    <i class="fas fa-angle-double-down" aria-hidden="true" data-toggle="down" title="展開功能表清單"></i>
+    <i class="fas fa-angle-double-up" aria-hidden="true" data-toggle="up" title="折疊功能表清單"></i>
+  </div>
+  <div class="nav-wrap container">
+    <ul id="menu-footer" class="nav container-inner group"> 
+    <li id="menu-item-1907" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1907"><a href="https://www.itread01.com/" rel="nofollow">首頁</a></li>
+<li id="menu-item-1907" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1907"><a href="https://www.itread01.com/study/mysql-tutorial.html">MySQL教學</a></li>
+<li id="menu-item-1907" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1907"><a href="https://www.itread01.com/t/%E7%B6%B2%E7%AB%99%E6%8A%80%E5%B7%A7/1/">網站技巧</a></li>
+<li id="menu-item-1907" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1907"><a href="https://www.itread01.com/t/%E7%B6%B2%E8%B7%AF%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88/1/">網路程式設計</a></li>
+<li id="menu-item-1907" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1907"><a href="https://www.itread01.com/t/%E8%BB%9F%E9%AB%94%E7%A8%8B%E5%BC%8F%E8%A8%AD%E8%A8%88/1/">軟體程式設計</a></li>
+<li id="menu-item-1907" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1907"><a href="https://www.itread01.com/t/%E8%B3%87%E6%96%99%E5%BA%AB/1/">資料庫</a></li>
+<li id="menu-item-1907" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1907"><a href="https://www.itread01.com/t/%E4%BD%9C%E6%A5%AD%E7%B3%BB%E7%B5%B1/1/">作業系統</a></li>
+<li id="menu-item-1907" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1907"><a href="https://www.itread01.com/t/%E6%8C%87%E4%BB%A4%E7%A2%BC%E5%B0%88%E6%AC%84/1/">其它</a></li>
+ 
+</ul>  </div>
+      <div id="topbar-header-search" class="container">
+      <div class="container-inner">
+        <div class="toggle-search"><i class="fas fa-search"></i></div>
+        <div class="search-expand">
+          <div class="search-expand-inner"><form class="searchform themeform" onsubmit="return searchKw(this)">
+	<div>
+		<input type="text" class="search" name="kw" onblur="if(this.value==&#39;&#39;)this.value=&#39;輸入關鍵字後搜尋&#39;;" onfocus="if(this.value==&#39;輸入關鍵字後搜尋&#39;)this.value=&#39;&#39;;" value="輸入關鍵字後搜尋">
+	</div>
+</form></div>
+        </div>
+      </div><!--/.container-inner-->
+    </div><!--/.container-->
+  
+</nav><!--/#nav-topbar-->  
+  <div class="container group">
+        <div class="container-inner">
+
+                    <div class="group pad central-header-zone">
+                  <div class="logo-tagline-group">
+                                        <p class="site-title"><a class="custom-logo-link" href="https://www.itread01.com/" rel="home"><img src="./【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載） - IT閱讀_files/logo.png"></a></p>
+                                                        </div>
+
+                                        <div id="header-widgets">
+                          <div id="custom_html-2" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"><!-- /109765683/728_Banner -->
+ </div></div>                      </div><!--/#header-ads-->
+                                </div>
+                <nav class="nav-container group desktop-menu " id="nav-header" data-menu-id="header-3">
+    <div class="nav-text"><!-- put your mobile menu text here --></div>
+  <div class="nav-wrap container">
+        <ul id="menu-top-1" class="nav container-inner group">
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-290"><a href="https://www.itread01.com/">首頁</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-290"><a href="https://www.itread01.com/%E7%A7%91%E6%8A%80/">科技</a></li>
+<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-290"><a href="https://www.itread01.com/info/">程式語言</a></li>
+</ul>  </div>
+</nav><!--/#nav-header-->      
+    </div><!--/.container-inner-->
+      </div><!--/.container-->
+</header><!--/#header-->        
+        <div class="container" id="page">
+            <div class="container-inner">
+
+                                <div class="main">
+                    <div class="main-inner group">
+                        
+              <section class="content">
+              <div class="page-title pad group">
+          	    		<ul class="meta-single group">
+    			<li class="category"><a href="https://www.itread01.com/infolist/%E5%85%B6%E4%BB%96/1/">其他</a></li>
+    			    		</ul>
+
+    	
+    </div><!--/.page-title-->
+          <div class="pad group">
+              <article class="post-43193 post type-post status-publish format-standard has-post-thumbnail hentry category-news tag-stripe tag-32305 tag-32306 tag-4550 tag-5237 tag-31545 tag-6260">
+    <div class="post-inner group">
+
+      <h1 class="post-title entry-title">【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載）</h1>
+<p class="post-byline"><span class="vcard author">
+     <span class="fn"><a href="https://www.itread01.com/infolist/%E5%85%B6%E4%BB%96/1/">其他</a></span>
+   </span> ·
+                            發表 <time class="published" datetime="2018-11-05">2018-11-05</time>
+             
+               </p>
+               <ins id="scupio-sc-4995-17811-847678_registed" class="scupioadslot" style="display: inline-block; width: 100%; height: 100px; position: relative;" data-sca-pub="lRIJBAgyQA==" data-sca-web="4995" data-sca-category="17" data-sca-cid="17811" data-sca-slot-type="PRA" data-sca-status="callback" undefined="0"><iframe name="scupioadframe" marginwidth="0" marginheight="0" frameborder="0" id="scupio-sc-4995-17811-847678_frame_1a3b4cf0-c0cc-4995-b111-cddf39bfc621" src="./【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載） - IT閱讀_files/ad.html" style="box-sizing: content-box; overflow: hidden; border: 0px; padding: 0px; margin: 0px; width: 100%; height: 100px; display: none;"></iframe><span id="viewability_detector_17811" style="position: absolute; z-index: -99999; background-color: transparent; left: 50%; top: 50%; width: 1px; height: 1px;"></span><ins class="scupioadslot" data-sca-pub="lRIJBAgyQA==" data-sca-web="4995" data-sca-category="17" data-sca-cid="17812" data-sca-slot-type="STA" data-sca-status="done" undefined="4" id="_registed" style="display: inline-block; width: 100%; height: 100px; margin: auto; position: relative;"><iframe name="scupioadframe" marginwidth="0" marginheight="0" frameborder="0" id="sc-1604889191132-587375912592_frame_c127ccc3-a858-4424-baad-c3e08165964c" src="./【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載） - IT閱讀_files/ad(1).html" style="box-sizing: content-box; overflow: hidden; border: 0px; padding: 0px; margin: 0px; width: 100%; height: 100px;"></iframe><span id="viewability_detector_17812" style="position: absolute; z-index: -99999; background-color: transparent; left: 50%; top: 50%; width: 1px; height: 1px;"></span></ins></ins>
+<script async="" src="./【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載） - IT閱讀_files/ad.js.下載"></script>
+<script>
+(function(s, c, u, p, i, o, a, d) {
+    'use strict';
+    var z=function(t,e,r){var a,n=document.createElement('ins'),s=n.style;for(a in n.className='scupioadslot',r&&(n.id=r),t)t.hasOwnProperty(a)&&(s[a]=t[a]);for(a in e)e.hasOwnProperty(a)&&n.setAttribute('data-sca-'+a,e[a]);return n};
+    (d = s.Scupioads = s.Scupioads || []).push({
+        id: u,
+        callback: function() {
+            p = c.getElementById(u);
+            i = p.style;
+            o = 'inline-block';
+            p.appendChild(z({
+                display: o,
+                width: '100%',
+                height: '100px',
+                margin: 'auto'
+            }, {
+                'pub': 'lRIJBAgyQA==',
+                'web': '4995',
+                'category': '17',
+                'cid': '17812',
+                'slot-type': 'STA'
+            }));
+            i.width = '100%';
+            i.height = '100px';
+            i.display = o;
+        }
+    });
+    setTimeout(function(){if(!s.Scupioads.init)for(i=d.length-1;0<=i;i--)if(d[i].id===u){d[i].callback(),d[i].callback=function(){};break}},1e3);
+})(window, document, 'scupio-sc-4995-17811-847678');
+</script>
+      
+      <div class="clear"></div>
+ 
+      <div class="entry themeform share">
+        <div class="entry-inner">
+		 
+<div class="htmledit_views"> 
+ <p>轉載來源：<a href="https://www.cnblogs.com/liuxianan/p/chrome-plugin-develop.html" rel="nofollow" target="_blank">https://www.cnblogs.com/liuxianan/p/chrome-plugin-develop.html</a><span class="hu-external"></span></p> 
+ <h1><a href="https://www.cnblogs.com/liuxianan/p/chrome-plugin-develop.html" rel="nofollow" id="cb_post_title_url" target="_blank">【乾貨】Chrome外掛(擴充套件)開發全攻略</a><span class="hu-external"></span></h1> 
+ <h1 id="寫在前面">寫在前面</h1> 
+ <p>我花了將近一個多月的時間斷斷續續寫下這篇博文，並精心寫下完整demo，寫部落格的辛苦大家懂的，所以轉載務必保留<a href="http://blog.haoji.me/chrome-plugin-develop.html" rel="nofollow" target="_blank">出處</a><span class="hu-external"></span>。本文所有涉及到的大部分程式碼均在這個demo裡面：<a href="https://github.com/sxei/chrome-plugin-demo" rel="nofollow" target="_blank">https://github.com/sxei/chrome-plugin-demo</a><span class="hu-external"></span>&nbsp;，大家可以直接下載下來執行。</p> 
+ <p>另外，本文圖片較多，且圖片伺服器頻寬有限，右下角的目錄滾動監聽必須等到圖片全部載入完畢之後才會觸發，所以請耐心等待載入完畢。</p> 
+ <p>本文目錄：</p> 
+ <p><img alt="" class="has" src="./【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載） - IT閱讀_files/352797-20170711100228759-367621595.png" referrerpolicy="no-referrer"></p> 
+ <p>demo部分截圖：</p> 
+ <p><img alt="" class="has" src="./【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載） - IT閱讀_files/352797-20170711100429118-918303767.png" referrerpolicy="no-referrer"></p> 
+ <h1 id="前言">前言</h1> 
+ <h2 id="什麼是chrome外掛">2.1.&nbsp;什麼是Chrome外掛</h2> 
+ <p>嚴格來講，我們正在說的東西應該叫Chrome擴充套件(<code>Chrome Extension</code>)，真正意義上的Chrome外掛是更底層的瀏覽器功能擴充套件，可能需要對瀏覽器原始碼有一定掌握才有能力去開發。鑑於Chrome外掛的叫法已經習慣，本文也全部採用這種叫法，但讀者需深知本文所描述的Chrome外掛實際上指的是Chrome擴充套件。</p> 
+ <p>Chrome外掛是一個用Web技術開發、用來增強瀏覽器功能的軟體，它其實就是一個由HTML、CSS、JS、圖片等資源組成的一個<a href="https://developer.chrome.com/extensions/crx" rel="nofollow" target="_blank">.crx</a><span class="hu-external"></span>字尾的壓縮包.</p> 
+ <p>個人猜測<code>crx</code>可能是<code>Chrome Extension</code>如下3個字母的簡寫：</p> 
+ <p><img alt="" class="has" src="./【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載） - IT閱讀_files/352797-20170711100448275-555008903.png" referrerpolicy="no-referrer"></p> 
+ <p>另外，其實不只是前端技術，Chrome外掛還可以配合C++編寫的dll動態連結庫實現一些更底層的功能(NPAPI)，比如全螢幕截圖。</p> 
+ <p><img alt="" class="has" src="./【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載） - IT閱讀_files/352797-20170711100549040-348646504.png" referrerpolicy="no-referrer"></p> 
+ <blockquote> 
+  <p>由於安全原因，Chrome瀏覽器42以上版本已經陸續不再支援NPAPI外掛，取而代之的是更安全的PPAPI。</p> 
+ </blockquote> 
+ <h2 id="學習chrome外掛開發有什麼意義">2.2.&nbsp;學習Chrome外掛開發有什麼意義</h2> 
+ <p>增強瀏覽器功能，輕鬆實現屬於自己的“定製版”瀏覽器，等等。</p> 
+ <p>Chrome外掛提供了很多實用API供我們使用，包括但不限於：</p> 
+ <ul>
+  <li>書籤控制；</li> 
+  <li>下載控制；</li> 
+  <li>視窗控制；</li> 
+  <li>標籤控制；</li> 
+  <li>網路請求控制，各類事件監聽；</li> 
+  <li>自定義原生選單；</li> 
+  <li>完善的通訊機制；</li> 
+  <li>等等；</li> 
+ </ul>
+ <h2 id="為什麼是chrome外掛而不是firefox外掛">2.3.&nbsp;為什麼是Chrome外掛而不是Firefox外掛</h2> 
+ <ol>
+  <li>Chrome佔有率更高，更多人用；</li> 
+  <li>開發更簡單；</li> 
+  <li>應用場景更廣泛，Firefox外掛只能執行在Firefox上，而Chrome除了Chrome瀏覽器之外，還可以執行在所有webkit核心的國產瀏覽器，比如360極速瀏覽器、360安全瀏覽器、搜狗瀏覽器、QQ瀏覽器等等；</li> 
+  <li>除此之外，Firefox瀏覽器也對Chrome外掛的執行提供了一定的支援；</li> 
+ </ol>
+ <h1 id="開發與除錯">開發與除錯</h1> 
+ <p>Chrome外掛沒有嚴格的專案結構要求，只要保證本目錄有一個<code>manifest.json</code>即可，也不需要專門的IDE，普通的web開發工具即可。</p> 
+ <p>從右上角選單-&gt;更多工具-&gt;擴充套件程式可以進入 外掛管理頁面，也可以直接在位址列輸入&nbsp;<a>chrome://extensions</a>&nbsp;訪問。</p> 
+ <p><img alt="" class="has" src="./【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載） - IT閱讀_files/352797-20170711101025931-1366345527.png" referrerpolicy="no-referrer"></p> 
+ <p>勾選<code>開發者模式</code>即可以資料夾的形式直接載入外掛，否則只能安裝<code>.crx</code>格式的檔案。Chrome要求外掛必須從它的Chrome應用商店安裝，其它任何網站下載的都無法直接安裝，所以，其實我們可以把<code>crx</code>檔案解壓，然後通過開發者模式直接載入。</p> 
+ <p>開發中，程式碼有任何改動都必須重新載入外掛，只需要在外掛管理頁按下<code>Ctrl+R</code>即可，以防萬一最好還把頁面重新整理一下。</p> 
+ <h1 id="核心介紹">核心介紹</h1> 
+ <h2 id="manifest.json">4.1.&nbsp;manifest.json</h2> 
+ <p>這是一個Chrome外掛最重要也是必不可少的檔案，用來配置所有和外掛相關的配置，必須放在根目錄。其中，<code>manifest_version</code>、<code>name</code>、<code>version</code>3個是必不可少的，<code>description</code>和<code>icons</code>是推薦的。</p> 
+ <p>下面給出的是一些常見的配置項，均有中文註釋，完整的配置文件請戳<a href="https://developer.chrome.com/extensions/manifest" rel="nofollow" target="_blank">這裡</a><span class="hu-external"></span>。</p> 
+ <pre class="has hljs cpp"><code>{
+    <span class="hljs-comment">// 清單檔案的版本，這個必須寫，而且必須是2</span>
+    <span class="hljs-string">"manifest_version"</span>: <span class="hljs-number">2</span>,
+    <span class="hljs-comment">// 外掛的名稱</span>
+    <span class="hljs-string">"name"</span>: <span class="hljs-string">"demo"</span>,
+    <span class="hljs-comment">// 外掛的版本</span>
+    <span class="hljs-string">"version"</span>: <span class="hljs-string">"1.0.0"</span>,
+    <span class="hljs-comment">// 外掛描述</span>
+    <span class="hljs-string">"description"</span>: <span class="hljs-string">"簡單的Chrome擴充套件demo"</span>,
+    <span class="hljs-comment">// 圖示，一般偷懶全部用一個尺寸的也沒問題</span>
+    <span class="hljs-string">"icons"</span>:
+    {
+        <span class="hljs-string">"16"</span>: <span class="hljs-string">"img/icon.png"</span>,
+        <span class="hljs-string">"48"</span>: <span class="hljs-string">"img/icon.png"</span>,
+        <span class="hljs-string">"128"</span>: <span class="hljs-string">"img/icon.png"</span>
+    },
+    <span class="hljs-comment">// 會一直常駐的後臺JS或後臺頁面</span>
+    <span class="hljs-string">"background"</span>:
+    {
+        <span class="hljs-comment">// 2種指定方式，如果指定JS，那麼會自動生成一個背景頁</span>
+        <span class="hljs-string">"page"</span>: <span class="hljs-string">"background.html"</span>
+        <span class="hljs-comment">//"scripts": ["js/background.js"]</span>
+    },
+    <span class="hljs-comment">// 瀏覽器右上角圖示設定，browser_action、page_action、app必須三選一</span>
+    <span class="hljs-string">"browser_action"</span>: 
+    {
+        <span class="hljs-string">"default_icon"</span>: <span class="hljs-string">"img/icon.png"</span>,
+        <span class="hljs-comment">// 圖示懸停時的標題，可選</span>
+        <span class="hljs-string">"default_title"</span>: <span class="hljs-string">"這是一個示例Chrome外掛"</span>,
+        <span class="hljs-string">"default_popup"</span>: <span class="hljs-string">"popup.html"</span>
+    },
+    <span class="hljs-comment">// 當某些特定頁面開啟才顯示的圖示</span>
+    <span class="hljs-comment">/*"page_action":
+    {
+        "default_icon": "img/icon.png",
+        "default_title": "我是pageAction",
+        "default_popup": "popup.html"
+    },*/</span>
+    <span class="hljs-comment">// 需要直接注入頁面的JS</span>
+    <span class="hljs-string">"content_scripts"</span>: 
+    [
+        {
+            <span class="hljs-comment">//"matches": ["http://*/*", "https://*/*"],</span>
+            <span class="hljs-comment">// "&lt;all_urls&gt;" 表示匹配所有地址</span>
+            <span class="hljs-string">"matches"</span>: [<span class="hljs-string">"&lt;all_urls&gt;"</span>],
+            <span class="hljs-comment">// 多個JS按順序注入</span>
+            <span class="hljs-string">"js"</span>: [<span class="hljs-string">"js/jquery-1.8.3.js"</span>, <span class="hljs-string">"js/content-script.js"</span>],
+            <span class="hljs-comment">// JS的注入可以隨便一點，但是CSS的注意就要千萬小心了，因為一不小心就可能影響全域性樣式</span>
+            <span class="hljs-string">"css"</span>: [<span class="hljs-string">"css/custom.css"</span>],
+            <span class="hljs-comment">// 程式碼注入的時間，可選值： "document_start", "document_end", or "document_idle"，最後一個表示頁面空閒時，預設document_idle</span>
+            <span class="hljs-string">"run_at"</span>: <span class="hljs-string">"document_start"</span>
+        },
+        <span class="hljs-comment">// 這裡僅僅是為了演示content-script可以配置多個規則</span>
+        {
+            <span class="hljs-string">"matches"</span>: [<span class="hljs-string">"*://*/*.png"</span>, <span class="hljs-string">"*://*/*.jpg"</span>, <span class="hljs-string">"*://*/*.gif"</span>, <span class="hljs-string">"*://*/*.bmp"</span>],
+            <span class="hljs-string">"js"</span>: [<span class="hljs-string">"js/show-image-content-size.js"</span>]
+        }
+    ],
+    <span class="hljs-comment">// 許可權申請</span>
+    <span class="hljs-string">"permissions"</span>:
+    [
+        <span class="hljs-string">"contextMenus"</span>, <span class="hljs-comment">// 右鍵選單</span>
+        <span class="hljs-string">"tabs"</span>, <span class="hljs-comment">// 標籤</span>
+        <span class="hljs-string">"notifications"</span>, <span class="hljs-comment">// 通知</span>
+        <span class="hljs-string">"webRequest"</span>, <span class="hljs-comment">// web請求</span>
+        <span class="hljs-string">"webRequestBlocking"</span>,
+        <span class="hljs-string">"storage"</span>, <span class="hljs-comment">// 外掛本地儲存</span>
+        <span class="hljs-string">"http://*/*"</span>, <span class="hljs-comment">// 可以通過executeScript或者insertCSS訪問的網站</span>
+        <span class="hljs-string">"https://*/*"</span> <span class="hljs-comment">// 可以通過executeScript或者insertCSS訪問的網站</span>
+    ],
+    <span class="hljs-comment">// 普通頁面能夠直接訪問的外掛資源列表，如果不設定是無法直接訪問的</span>
+    <span class="hljs-string">"web_accessible_resources"</span>: [<span class="hljs-string">"js/inject.js"</span>],
+    <span class="hljs-comment">// 外掛主頁，這個很重要，不要浪費了這個免費廣告位</span>
+    <span class="hljs-string">"homepage_url"</span>: <span class="hljs-string">"https://www.baidu.com"</span>,
+    <span class="hljs-comment">// 覆蓋瀏覽器預設頁面</span>
+    <span class="hljs-string">"chrome_url_overrides"</span>:
+    {
+        <span class="hljs-comment">// 覆蓋瀏覽器預設的新標籤頁</span>
+        <span class="hljs-string">"newtab"</span>: <span class="hljs-string">"newtab.html"</span>
+    },
+    <span class="hljs-comment">// Chrome40以前的外掛配置頁寫法</span>
+    <span class="hljs-string">"options_page"</span>: <span class="hljs-string">"options.html"</span>,
+    <span class="hljs-comment">// Chrome40以後的外掛配置頁寫法，如果2個都寫，新版Chrome只認後面這一個</span>
+    <span class="hljs-string">"options_ui"</span>:
+    {
+        <span class="hljs-string">"page"</span>: <span class="hljs-string">"options.html"</span>,
+        <span class="hljs-comment">// 新增一些預設的樣式，推薦使用</span>
+        <span class="hljs-string">"chrome_style"</span>: <span class="hljs-literal">true</span>
+    },
+    <span class="hljs-comment">// 向地址欄註冊一個關鍵字以提供搜尋建議，只能設定一個關鍵字</span>
+    <span class="hljs-string">"omnibox"</span>: { <span class="hljs-string">"keyword"</span> : <span class="hljs-string">"go"</span> },
+    <span class="hljs-comment">// 預設語言</span>
+    <span class="hljs-string">"default_locale"</span>: <span class="hljs-string">"zh_CN"</span>,
+    <span class="hljs-comment">// devtools頁面入口，注意只能指向一個HTML檔案，不能是JS檔案</span>
+    <span class="hljs-string">"devtools_page"</span>: <span class="hljs-string">"devtools.html"</span>
+}</code></pre> 
+ <h2 id="content-scripts">4.2.&nbsp;content-scripts</h2> 
+ <p>所謂<a href="https://developer.chrome.com/extensions/content_scripts" rel="nofollow" target="_blank">content-scripts</a><span class="hu-external"></span>，其實就是Chrome外掛中向頁面注入指令碼的一種形式（雖然名為script，其實還可以包括css的），藉助<code>content-scripts</code>我們可以實現通過配置的方式輕鬆向指定頁面注入JS和CSS（如果需要動態注入，可以參考下文），最常見的比如：廣告遮蔽、頁面CSS定製，等等。</p> 
+ <p>示例配置：</p> 
+ <pre class="has hljs ruby"><code>{
+    <span class="hljs-regexp">//</span> 需要直接注入頁面的JS
+    <span class="hljs-string">"content_scripts"</span>: 
+    [
+        {
+            <span class="hljs-regexp">//</span><span class="hljs-string">"matches"</span>: [<span class="hljs-string">"http://*/*"</span>, <span class="hljs-string">"https://*/*"</span>],
+            <span class="hljs-regexp">//</span> <span class="hljs-string">"&lt;all_urls&gt;"</span> 表示匹配所有地址
+            <span class="hljs-string">"matches"</span>: [<span class="hljs-string">"&lt;all_urls&gt;"</span>],
+            <span class="hljs-regexp">//</span> 多個JS按順序注入
+            <span class="hljs-string">"js"</span>: [<span class="hljs-string">"js/jquery-1.8.3.js"</span>, <span class="hljs-string">"js/content-script.js"</span>],
+            <span class="hljs-regexp">//</span> JS的注入可以隨便一點，但是CSS的注意就要千萬小心了，因為一不小心就可能影響全域性樣式
+            <span class="hljs-string">"css"</span>: [<span class="hljs-string">"css/custom.css"</span>],
+            <span class="hljs-regexp">//</span> 程式碼注入的時間，可選值： <span class="hljs-string">"document_start"</span>, <span class="hljs-string">"document_end"</span>, <span class="hljs-keyword">or</span> <span class="hljs-string">"document_idle"</span>，最後一個表示頁面空閒時，預設document_idle
+            <span class="hljs-string">"run_at"</span>: <span class="hljs-string">"document_start"</span>
+        }
+    ],
+}</code></pre> 
+ <p>特別注意，如果沒有主動指定<code>run_at</code>為<code>document_start</code>（預設為<code>document_idle</code>），下面這種程式碼是不會生效的：</p> 
+ <pre class="has hljs javascript"><code><span class="hljs-built_in">document</span>.addEventListener(<span class="hljs-string">'DOMContentLoaded'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)
+</span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'我被執行了！'</span>);
+});</code></pre> 
+ <p><code>content-scripts</code>和原始頁面共享DOM，但是不共享JS，如要訪問頁面JS（例如某個JS變數），只能通過<code>injected js</code>來實現。<code>content-scripts</code>不能訪問絕大部分<code>chrome.xxx.api</code>，除了下面這4種：</p> 
+ <ul>
+  <li>chrome.extension(getURL , inIncognitoContext , lastError , onRequest , sendRequest)</li> 
+  <li>chrome.i18n</li> 
+  <li>chrome.runtime(connect , getManifest , getURL , id , onConnect , onMessage , sendMessage)</li> 
+  <li>chrome.storage</li> 
+ </ul>
+ <p>其實看到這裡不要悲觀，這些API絕大部分時候都夠用了，非要呼叫其它API的話，你還可以通過通訊來實現讓background來幫你呼叫（關於通訊，後文有詳細介紹）。</p> 
+ <p>好了，Chrome外掛給我們提供了這麼強大的JS注入功能，剩下的就是發揮你的想象力去玩弄瀏覽器了。</p> 
+ <h2 id="background">4.3.&nbsp;background</h2> 
+ <p>後臺（姑且這麼翻譯吧），是一個常駐的頁面，它的生命週期是外掛中所有型別頁面中最長的，它隨著瀏覽器的開啟而開啟，隨著瀏覽器的關閉而關閉，所以通常把需要一直執行的、啟動就執行的、全域性的程式碼放在background裡面。</p> 
+ <p>background的許可權非常高，幾乎可以呼叫所有的Chrome擴充套件API（除了devtools），而且它可以無限制跨域，也就是可以跨域訪問任何網站而無需要求對方設定<code>CORS</code>。</p> 
+ <blockquote> 
+  <p>經過測試，其實不止是background，所有的直接通過<code>chrome-extension://id/xx.html</code>這種方式開啟的網頁都可以無限制跨域。</p> 
+ </blockquote> 
+ <p>配置中，<code>background</code>可以通過<code>page</code>指定一張網頁，也可以通過<code>scripts</code>直接指定一個JS，Chrome會自動為這個JS生成一個預設的網頁：</p> 
+ <pre class="has hljs cpp"><code>{
+    <span class="hljs-comment">// 會一直常駐的後臺JS或後臺頁面</span>
+    <span class="hljs-string">"background"</span>:
+    {
+        <span class="hljs-comment">// 2種指定方式，如果指定JS，那麼會自動生成一個背景頁</span>
+        <span class="hljs-string">"page"</span>: <span class="hljs-string">"background.html"</span>
+        <span class="hljs-comment">//"scripts": ["js/background.js"]</span>
+    },
+}</code></pre> 
+ <p>需要特別說明的是，雖然你可以通過<code>chrome-extension://xxx/background.html</code>直接開啟後臺頁，但是你開啟的後臺頁和真正一直在後臺執行的那個頁面不是同一個，換句話說，你可以開啟無數個<code>background.html</code>，但是真正在後臺常駐的只有一個，而且這個你永遠看不到它的介面，只能除錯它的程式碼。</p> 
+ <h2 id="event-pages">4.4.&nbsp;event-pages</h2> 
+ <p>這裡順帶介紹一下<a href="https://developer.chrome.com/extensions/event_pages" rel="nofollow" target="_blank">event-pages</a><span class="hu-external"></span>，它是一個什麼東西呢？鑑於background生命週期太長，長時間掛載後臺可能會影響效能，所以Google又弄一個<code>event-pages</code>，在配置檔案上，它與background的唯一區別就是多了一個<code>persistent</code>引數：</p> 
+ <pre class="has hljs json"><code>{
+    <span class="hljs-attr">"background"</span>:
+    {
+        <span class="hljs-attr">"scripts"</span>: [<span class="hljs-string">"event-page.js"</span>],
+        <span class="hljs-attr">"persistent"</span>: <span class="hljs-literal">false</span>
+    },
+}</code></pre> 
+ <p>它的生命週期是：在被需要時載入，在空閒時被關閉，什麼叫被需要時呢？比如第一次安裝、外掛更新、有content-script向它傳送訊息，等等。</p> 
+ <p>除了配置檔案的變化，程式碼上也有一些細微變化，個人這個簡單瞭解一下就行了，一般情況下background也不會很消耗效能的。</p> 
+ <h2 id="popup">4.5.&nbsp;popup</h2> 
+ <p><code>popup</code>是點選<code>browser_action</code>或者<code>page_action</code>圖示時開啟的一個小視窗網頁，焦點離開網頁就立即關閉，一般用來做一些臨時性的互動。</p> 
+ <p><img alt="部落格園網摘外掛popup效果" class="has" src="./【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載） - IT閱讀_files/352797-20170711101054353-176942304.png" referrerpolicy="no-referrer"></p> 
+ <p><code>popup</code>可以包含任意你想要的HTML內容，並且會自適應大小。可以通過<code>default_popup</code>欄位來指定popup頁面，也可以呼叫<code>setPopup()</code>方法。</p> 
+ <p>配置方式：</p> 
+ <pre class="has hljs cpp"><code>{
+    <span class="hljs-string">"browser_action"</span>:
+    {
+        <span class="hljs-string">"default_icon"</span>: <span class="hljs-string">"img/icon.png"</span>,
+        <span class="hljs-comment">// 圖示懸停時的標題，可選</span>
+        <span class="hljs-string">"default_title"</span>: <span class="hljs-string">"這是一個示例Chrome外掛"</span>,
+        <span class="hljs-string">"default_popup"</span>: <span class="hljs-string">"popup.html"</span>
+    }
+}</code></pre> 
+ <p><img alt="" class="has" src="./【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載） - IT閱讀_files/352797-20170711101114415-2019243064.png" referrerpolicy="no-referrer"></p> 
+ <p>需要特別注意的是，由於單擊圖示開啟popup，焦點離開又立即關閉，所以popup頁面的生命週期一般很短，需要長時間執行的程式碼千萬不要寫在popup裡面。</p> 
+ <p>在許可權上，它和background非常類似，它們之間最大的不同是生命週期的不同，popup中可以直接通過<code>chrome.extension.getBackgroundPage()</code>獲取background的window物件。</p> 
+ <h2 id="injected-script">4.6.&nbsp;injected-script</h2> 
+ <p>這裡的<code>injected-script</code>是我給它取的，指的是通過DOM操作的方式向頁面注入的一種JS。為什麼要把這種JS單獨拿出來討論呢？又或者說為什麼需要通過這種方式注入JS呢？</p> 
+ <p>這是因為<code>content-script</code>有一個很大的“缺陷”，也就是無法訪問頁面中的JS，雖然它可以操作DOM，但是DOM卻不能呼叫它，也就是無法在DOM中通過繫結事件的方式呼叫<code>content-script</code>中的程式碼（包括直接寫<code>onclick</code>和<code>addEventListener</code>2種方式都不行），但是，“在頁面上新增一個按鈕並呼叫外掛的擴充套件API”是一個很常見的需求，那該怎麼辦呢？其實這就是本小節要講的。</p> 
+ <p>在<code>content-script</code>中通過DOM方式向頁面注入<code>inject-script</code>程式碼示例：</p> 
+ <pre class="has hljs javascript"><code><span class="hljs-comment">// 向頁面注入JS</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">injectCustomJs</span>(<span class="hljs-params">jsPath</span>)
+</span>{
+    jsPath = jsPath || <span class="hljs-string">'js/inject.js'</span>;
+    <span class="hljs-keyword">var</span> temp = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">'script'</span>);
+    temp.setAttribute(<span class="hljs-string">'type'</span>, <span class="hljs-string">'text/javascript'</span>);
+    <span class="hljs-comment">// 獲得的地址類似：chrome-extension://ihcokhadfjfchaeagdoclpnjdiokfakg/js/inject.js</span>
+    temp.src = chrome.extension.getURL(jsPath);
+    temp.onload = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)
+    </span>{
+        <span class="hljs-comment">// 放在頁面不好看，執行完後移除掉</span>
+        <span class="hljs-keyword">this</span>.parentNode.removeChild(<span class="hljs-keyword">this</span>);
+    };
+    <span class="hljs-built_in">document</span>.head.appendChild(temp);
+}</code></pre> 
+ <p>你以為這樣就行了？執行一下你會看到如下報錯：</p> 
+ <pre class="has hljs sql"><code>Denying <span class="hljs-keyword">load</span> <span class="hljs-keyword">of</span> chrome-extension://efbllncjkjiijkppagepehoekjojdclc/js/inject.js. Resources must be listed <span class="hljs-keyword">in</span> the web_accessible_resources manifest <span class="hljs-keyword">key</span> <span class="hljs-keyword">in</span> <span class="hljs-keyword">order</span> <span class="hljs-keyword">to</span> be loaded <span class="hljs-keyword">by</span> pages outside the extension.</code></pre> 
+ <p>意思就是你想要在web中直接訪問外掛中的資源的話必須顯示宣告才行，配置檔案中增加如下：</p> 
+ <pre class="has hljs cpp"><code>{
+    <span class="hljs-comment">// 普通頁面能夠直接訪問的外掛資源列表，如果不設定是無法直接訪問的</span>
+    <span class="hljs-string">"web_accessible_resources"</span>: [<span class="hljs-string">"js/inject.js"</span>],
+}</code></pre> 
+ <p>至於<code>inject-script</code>如何呼叫<code>content-script</code>中的程式碼，後面我會在專門的一個訊息通訊章節詳細介紹。</p> 
+ <h2 id="homepage_url">4.7.&nbsp;homepage_url</h2> 
+ <p>開發者或者外掛主頁設定，一般會在如下2個地方顯示：</p> 
+ <p><img alt="" class="has" src="./【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載） - IT閱讀_files/352797-20170711101138368-1160396252.png" referrerpolicy="no-referrer"></p> 
+ <p><img alt="" class="has" src="./【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載） - IT閱讀_files/352797-20170711101153556-956484967.png" referrerpolicy="no-referrer"></p> 
+ <h1 id="chrome外掛的8種展示形式">Chrome外掛的8種展示形式</h1> 
+ <h2 id="browseraction瀏覽器右上角">5.1.&nbsp;browserAction(瀏覽器右上角)</h2> 
+ <p>通過配置<code>browser_action</code>可以在瀏覽器的右上角增加一個圖示，一個<code>browser_action</code>可以擁有一個圖示，一個<code>tooltip</code>，一個<code>badge</code>和一個<code>popup</code>。</p> 
+ <p>示例配置如下：</p> 
+ <pre class="has hljs bash"><code><span class="hljs-string">"browser_action"</span>:
+{
+    <span class="hljs-string">"default_icon"</span>: <span class="hljs-string">"img/icon.png"</span>,
+    <span class="hljs-string">"default_title"</span>: <span class="hljs-string">"這是一個示例Chrome外掛"</span>,
+    <span class="hljs-string">"default_popup"</span>: <span class="hljs-string">"popup.html"</span>
+}</code></pre> 
+ <h3 id="圖示">5.1.1.&nbsp;圖示</h3> 
+ <p><code>browser_action</code>圖示推薦使用寬高都為19畫素的圖片，更大的圖示會被縮小，格式隨意，一般推薦png，可以通過manifest中<code>default_icon</code>欄位配置，也可以呼叫setIcon()方法。</p> 
+ <h3 id="tooltip">5.1.2.&nbsp;tooltip</h3> 
+ <p>修改<code>browser_action</code>的manifest中<code>default_title</code>欄位，或者呼叫<code>setTitle()</code>方法。</p> 
+ <p><img alt="" class="has" src="./【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載） - IT閱讀_files/352797-20170711101210759-683039077.png" referrerpolicy="no-referrer"></p> 
+ <h3 id="badge">5.1.3.&nbsp;badge</h3> 
+ <p>所謂<code>badge</code>就是在圖示上顯示一些文字，可以用來更新一些小的擴充套件狀態提示資訊。因為badge空間有限，所以只支援4個以下的字元（英文4個，中文2個）。badge無法通過配置檔案來指定，必須通過程式碼實現，設定badge文字和顏色可以分別使用<code>setBadgeText()</code>和<code>setBadgeBackgroundColor()</code>。</p> 
+ <pre class="has hljs css"><code><span class="hljs-selector-tag">chrome</span><span class="hljs-selector-class">.browserAction</span><span class="hljs-selector-class">.setBadgeText</span>({<span class="hljs-attribute">text</span>: <span class="hljs-string">'new'</span>});
+<span class="hljs-selector-tag">chrome</span><span class="hljs-selector-class">.browserAction</span><span class="hljs-selector-class">.setBadgeBackgroundColor</span>({<span class="hljs-attribute">color</span>: [<span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">255</span>]});</code></pre> 
+ <p>效果：</p> 
+ <p><img alt="" class="has" src="./【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載） - IT閱讀_files/352797-20170711101228056-2133169218.png" referrerpolicy="no-referrer"></p> 
+ <h2 id="pageaction位址列右側">5.2.&nbsp;pageAction(位址列右側)</h2> 
+ <p>所謂<code>pageAction</code>，指的是隻有當某些特定頁面開啟才顯示的圖示，它和<code>browserAction</code>最大的區別是一個始終都顯示，一個只在特定情況才顯示。</p> 
+ <p>需要特別說明的是早些版本的Chrome是將pageAction放在位址列的最右邊，左鍵單擊彈出popup，右鍵單擊則彈出相關預設的選項選單：</p> 
+ <p><img alt="" class="has" src="./【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載） - IT閱讀_files/352797-20170711101549665-519093069.png" referrerpolicy="no-referrer"></p> 
+ <p>而新版的Chrome更改了這一策略，pageAction和普通的browserAction一樣也是放在瀏覽器右上角，只不過沒有點亮時是灰色的，點亮了才是彩色的，灰色時無論左鍵還是右鍵單擊都是彈出選項：</p> 
+ <p><img alt="" class="has" src="./【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載） - IT閱讀_files/352797-20170711101604947-1619892598.gif" referrerpolicy="no-referrer"></p> 
+ <blockquote> 
+  <p>具體是從哪一版本開始改的沒去仔細考究，反正知道v50.0的時候還是前者，v58.0的時候已改為後者。</p> 
+ </blockquote> 
+ <p>調整之後的<code>pageAction</code>我們可以簡單地把它看成是可以置灰的<code>browserAction</code>。</p> 
+ <ul>
+  <li>chrome.pageAction.show(tabId) 顯示圖示；</li> 
+  <li>chrome.pageAction.hide(tabId) 隱藏圖示；</li> 
+ </ul>
+ <p>示例(只有開啟百度才顯示圖示)：</p> 
+ <pre class="has hljs javascript"><code><span class="hljs-comment">// manifest.json</span>
+{
+    <span class="hljs-string">"page_action"</span>:
+    {
+        <span class="hljs-string">"default_icon"</span>: <span class="hljs-string">"img/icon.png"</span>,
+        <span class="hljs-string">"default_title"</span>: <span class="hljs-string">"我是pageAction"</span>,
+        <span class="hljs-string">"default_popup"</span>: <span class="hljs-string">"popup.html"</span>
+    },
+    <span class="hljs-string">"permissions"</span>: [<span class="hljs-string">"declarativeContent"</span>]
+}
+
+<span class="hljs-comment">// background.js</span>
+chrome.runtime.onInstalled.addListener(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+    chrome.declarativeContent.onPageChanged.removeRules(<span class="hljs-literal">undefined</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+        chrome.declarativeContent.onPageChanged.addRules([
+            {
+                <span class="hljs-attr">conditions</span>: [
+                    <span class="hljs-comment">// 只有開啟百度才顯示pageAction</span>
+                    <span class="hljs-keyword">new</span> chrome.declarativeContent.PageStateMatcher({<span class="hljs-attr">pageUrl</span>: {<span class="hljs-attr">urlContains</span>: <span class="hljs-string">'baidu.com'</span>}})
+                ],
+                <span class="hljs-attr">actions</span>: [<span class="hljs-keyword">new</span> chrome.declarativeContent.ShowPageAction()]
+            }
+        ]);
+    });
+});</code></pre> 
+ <p>效果圖：</p> 
+ <p><img alt="" class="has" src="./【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載） - IT閱讀_files/352797-20170711101633728-1835819108.gif" referrerpolicy="no-referrer"></p> 
+ <h2 id="右鍵選單">5.3.&nbsp;右鍵選單</h2> 
+ <p>通過開發Chrome外掛可以自定義瀏覽器的右鍵選單，主要是通過<code>chrome.contextMenus</code>API實現，右鍵選單可以出現在不同的上下文，比如普通頁面、選中的文字、圖片、連結，等等，如果有同一個外掛裡面定義了多個選單，Chrome會自動組合放到以外掛名字命名的二級選單裡，如下：</p> 
+ <p><img alt="" class="has" src="./【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載） - IT閱讀_files/352797-20170711101651618-268310284.png" referrerpolicy="no-referrer"></p> 
+ <h3 id="最簡單的右鍵選單示例">5.3.1.&nbsp;最簡單的右鍵選單示例</h3> 
+ <pre class="has hljs javascript"><code><span class="hljs-comment">// manifest.json</span>
+{<span class="hljs-string">"permissions"</span>: [<span class="hljs-string">"contextMenus"</span>]}
+
+<span class="hljs-comment">// background.js</span>
+chrome.contextMenus.create({
+    <span class="hljs-attr">title</span>: <span class="hljs-string">"測試右鍵選單"</span>,
+    <span class="hljs-attr">onclick</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{alert(<span class="hljs-string">'您點選了右鍵選單！'</span>);}
+});</code></pre> 
+ <p>效果：</p> 
+ <p><img alt="" class="has" src="./【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載） - IT閱讀_files/352797-20170711101704775-1000780193.png" referrerpolicy="no-referrer"></p> 
+ <h3 id="新增右鍵百度搜索">5.3.2.&nbsp;新增右鍵百度搜索</h3> 
+ <pre class="has hljs javascript"><code><span class="hljs-comment">// manifest.json</span>
+{<span class="hljs-string">"permissions"</span>: [<span class="hljs-string">"contextMenus"</span>， <span class="hljs-string">"tabs"</span>]}
+
+<span class="hljs-comment">// background.js</span>
+chrome.contextMenus.create({
+    <span class="hljs-attr">title</span>: <span class="hljs-string">'使用度娘搜尋：%s'</span>, <span class="hljs-comment">// %s表示選中的文字</span>
+    contexts: [<span class="hljs-string">'selection'</span>], <span class="hljs-comment">// 只有當選中文字時才會出現此右鍵選單</span>
+    onclick: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">params</span>)
+    </span>{
+        <span class="hljs-comment">// 注意不能使用location.href，因為location是屬於background的window物件</span>
+        chrome.tabs.create({<span class="hljs-attr">url</span>: <span class="hljs-string">'https://www.baidu.com/s?ie=utf-8&amp;wd='</span> + <span class="hljs-built_in">encodeURI</span>(params.selectionText)});
+    }
+});</code></pre> 
+ <p>效果如下：</p> 
+ <p><img alt="" class="has" src="./【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載） - IT閱讀_files/352797-20170711101721384-916526079.png" referrerpolicy="no-referrer"></p> 
+ <h3 id="語法說明">5.3.3.&nbsp;語法說明</h3> 
+ <p>這裡只是簡單列舉一些常用的，完整API參見：<a href="https://developer.chrome.com/extensions/contextMenus" rel="nofollow" target="_blank">https://developer.chrome.com/extensions/contextMenus</a><span class="hu-external"></span></p> 
+ <pre class="has hljs bash"><code>chrome.contextMenus.create({
+    <span class="hljs-built_in">type</span>: <span class="hljs-string">'normal'</span>， // 型別，可選：[<span class="hljs-string">"normal"</span>, <span class="hljs-string">"checkbox"</span>, <span class="hljs-string">"radio"</span>, <span class="hljs-string">"separator"</span>]，預設 normal
+    title: <span class="hljs-string">'選單的名字'</span>, // 顯示的文字，除非為“separator”型別否則此引數必需，如果型別為“selection”，可以使用%s顯示選定的文字
+    contexts: [<span class="hljs-string">'page'</span>], // 上下文環境，可選：[<span class="hljs-string">"all"</span>, <span class="hljs-string">"page"</span>, <span class="hljs-string">"frame"</span>, <span class="hljs-string">"selection"</span>, <span class="hljs-string">"link"</span>, <span class="hljs-string">"editable"</span>, <span class="hljs-string">"image"</span>, <span class="hljs-string">"video"</span>, <span class="hljs-string">"audio"</span>]，預設page
+    onclick: <span class="hljs-function"><span class="hljs-title">function</span></span>(){}, // 單擊時觸發的方法
+    parentId: 1, // 右鍵選單項的父選單項ID。指定父選單項將會使此選單項成為父選單項的子選單
+    documentUrlPatterns: <span class="hljs-string">'https://*.baidu.com/*'</span> // 只在某些頁面顯示此右鍵選單
+});
+// 刪除某一個選單項
+chrome.contextMenus.remove(menuItemId)；
+// 刪除所有自定義右鍵選單
+chrome.contextMenus.removeAll();
+// 更新某一個選單項
+chrome.contextMenus.update(menuItemId, updateProperties);</code></pre> 
+ <h2 id="override覆蓋特定頁面">5.4.&nbsp;override(覆蓋特定頁面)</h2> 
+ <p>使用<code>override</code>頁可以將Chrome預設的一些特定頁面替換掉，改為使用擴充套件提供的頁面。</p> 
+ <p>擴充套件可以替代如下頁面：</p> 
+ <ul>
+  <li>歷史記錄：從工具選單上點選歷史記錄時訪問的頁面，或者從位址列直接輸入&nbsp;<a>chrome://history</a></li> 
+  <li>新標籤頁：當建立新標籤的時候訪問的頁面，或者從位址列直接輸入&nbsp;<a>chrome://newtab</a></li> 
+  <li>書籤：瀏覽器的書籤，或者直接輸入&nbsp;<a>chrome://bookmarks</a></li> 
+ </ul>
+ <p>注意：</p> 
+ <ul>
+  <li>一個擴充套件只能替代一個頁面；</li> 
+  <li>不能替代隱身視窗的新標籤頁；</li> 
+  <li>網頁必須設定title，否則使用者可能會看到網頁的URL，造成困擾；</li> 
+ </ul>
+ <p>下面的截圖是預設的新標籤頁和被擴充套件替換掉的新標籤頁。</p> 
+ <p><img alt="" class="has" src="./【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載） - IT閱讀_files/352797-20170711101740947-1059479610.png" referrerpolicy="no-referrer"></p> 
+ <p>程式碼（注意，一個外掛只能替代一個預設頁，以下僅為演示）：</p> 
+ <pre class="has hljs bash"><code><span class="hljs-string">"chrome_url_overrides"</span>:
+{
+    <span class="hljs-string">"newtab"</span>: <span class="hljs-string">"newtab.html"</span>,
+    <span class="hljs-string">"history"</span>: <span class="hljs-string">"history.html"</span>,
+    <span class="hljs-string">"bookmarks"</span>: <span class="hljs-string">"bookmarks.html"</span>
+}</code></pre> 
+ <h2 id="devtools開發者工具">5.5.&nbsp;devtools(開發者工具)</h2> 
+ <h3 id="預熱">5.5.1.&nbsp;預熱</h3> 
+ <p>使用過vue的應該見過這種型別的外掛：</p> 
+ <p><img alt="" class="has" src="./【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載） - IT閱讀_files/352797-20170711101756868-1307680533.png" referrerpolicy="no-referrer"></p> 
+ <p>是的，Chrome允許外掛在開發者工具(devtools)上動手腳，主要表現在：</p> 
+ <ul>
+  <li>自定義一個和多個和<code>Elements</code>、<code>Console</code>、<code>Sources</code>等同級別的面板；</li> 
+  <li>自定義側邊欄(sidebar)，目前只能自定義<code>Elements</code>面板的側邊欄；</li> 
+ </ul>
+ <p>先來看2張簡單的demo截圖，自定義面板（判斷當前頁面是否使用了jQuery）：</p> 
+ <p><img alt="" class="has" src="./【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載） - IT閱讀_files/352797-20170711101815243-1381068889.png" referrerpolicy="no-referrer"></p> 
+ <p>自定義側邊欄（獲取當前頁面所有圖片）：</p> 
+ <p><img alt="" class="has" src="./【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載） - IT閱讀_files/352797-20170711101832259-552804777.png" referrerpolicy="no-referrer"></p> 
+ <h3 id="devtools擴充套件介紹">5.5.2.&nbsp;devtools擴充套件介紹</h3> 
+ <p>主頁：<a href="https://developer.chrome.com/extensions/devtools" rel="nofollow" target="_blank">https://developer.chrome.com/extensions/devtools</a><span class="hu-external"></span></p> 
+ <p>來一張官方圖片：</p> 
+ <p><img alt="" class="has" src="./【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載） - IT閱讀_files/352797-20170711101847493-273760238.png" referrerpolicy="no-referrer"></p> 
+ <p>每開啟一個開發者工具視窗，都會建立devtools頁面的例項，F12視窗關閉，頁面也隨著關閉，所以devtools頁面的生命週期和devtools視窗是一致的。devtools頁面可以訪問一組特有的<code>DevTools API</code>以及有限的擴充套件API，這組特有的<code>DevTools API</code>只有devtools頁面才可以訪問，background都無權訪問，這些API包括：</p> 
+ <ul>
+  <li><code>chrome.devtools.panels</code>：面板相關；</li> 
+  <li><code>chrome.devtools.inspectedWindow</code>：獲取被審查視窗的有關資訊；</li> 
+  <li><code>chrome.devtools.network</code>：獲取有關網路請求的資訊；</li> 
+ </ul>
+ <p>大部分擴充套件API都無法直接被<code>DevTools</code>頁面呼叫，但它可以像<code>content-script</code>一樣直接呼叫<code>chrome.extension</code>和<code>chrome.runtime</code>API，同時它也可以像<code>content-script</code>一樣使用Message互動的方式與background頁面進行通訊。</p> 
+ <h3 id="例項建立一個devtools擴充套件">5.5.3.&nbsp;例項：建立一個devtools擴充套件</h3> 
+ <p>首先，要針對開發者工具開發外掛，需要在清單檔案宣告如下：</p> 
+ <pre class="has hljs cpp"><code>{
+    <span class="hljs-comment">// 只能指向一個HTML檔案，不能是JS檔案</span>
+    <span class="hljs-string">"devtools_page"</span>: <span class="hljs-string">"devtools.html"</span>
+}</code></pre> 
+ <p>這個<code>devtools.html</code>裡面一般什麼都沒有，就引入一個js：</p> 
+ <pre class="has hljs xml"><code><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"js/devtools.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre> 
+ <p>可以看出來，其實真正程式碼是<code>devtools.js</code>，html檔案是“多餘”的，所以這裡覺得有點坑，<code>devtools_page</code>幹嘛不允許直接指定JS呢？</p> 
+ <p>再來看devtools.js的程式碼：</p> 
+ <pre class="has hljs javascript"><code><span class="hljs-comment">// 建立自定義面板，同一個外掛可以建立多個自定義面板</span>
+<span class="hljs-comment">// 幾個引數依次為：panel標題、圖示（其實設定了也沒地方顯示）、要載入的頁面、載入成功後的回撥</span>
+chrome.devtools.panels.create(<span class="hljs-string">'MyPanel'</span>, <span class="hljs-string">'img/icon.png'</span>, <span class="hljs-string">'mypanel.html'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">panel</span>)
+</span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'自定義面板建立成功！'</span>); <span class="hljs-comment">// 注意這個log一般看不到</span>
+});
+
+<span class="hljs-comment">// 建立自定義側邊欄</span>
+chrome.devtools.panels.elements.createSidebarPane(<span class="hljs-string">"Images"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">sidebar</span>)
+</span>{
+    <span class="hljs-comment">// sidebar.setPage('../sidebar.html'); // 指定載入某個頁面</span>
+    sidebar.setExpression(<span class="hljs-string">'document.querySelectorAll("img")'</span>, <span class="hljs-string">'All Images'</span>); <span class="hljs-comment">// 通過表示式來指定</span>
+    <span class="hljs-comment">//sidebar.setObject({aaa: 111, bbb: 'Hello World!'}); // 直接設定顯示某個物件</span>
+});</code></pre> 
+ <p>setPage時的效果：</p> 
+ <p><img alt="" class="has" src="./【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載） - IT閱讀_files/352797-20170711101903837-2079245455.png" referrerpolicy="no-referrer"></p> 
+ <p>以下截圖示例的程式碼：</p> 
+ <p><img alt="" class="has" src="./【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載） - IT閱讀_files/352797-20170711101928103-1093454821.png" referrerpolicy="no-referrer"></p> 
+ <pre class="has hljs javascript"><code><span class="hljs-comment">// 檢測jQuery</span>
+<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'check_jquery'</span>).addEventListener(<span class="hljs-string">'click'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)
+</span>{
+    <span class="hljs-comment">// 訪問被檢查的頁面DOM需要使用inspectedWindow</span>
+    <span class="hljs-comment">// 簡單例子：檢測被檢查頁面是否使用了jQuery</span>
+    chrome.devtools.inspectedWindow.eval(<span class="hljs-string">"jQuery.fn.jquery"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">result, isException</span>)
+    </span>{
+        <span class="hljs-keyword">var</span> html = <span class="hljs-string">''</span>;
+        <span class="hljs-keyword">if</span> (isException) html = <span class="hljs-string">'當前頁面沒有使用jQuery。'</span>;
+        <span class="hljs-keyword">else</span> html = <span class="hljs-string">'當前頁面使用了jQuery，版本為：'</span>+result;
+        alert(html);
+    });
+});
+
+<span class="hljs-comment">// 開啟某個資源</span>
+<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'open_resource'</span>).addEventListener(<span class="hljs-string">'click'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)
+</span>{
+    chrome.devtools.inspectedWindow.eval(<span class="hljs-string">"window.location.href"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">result, isException</span>)
+    </span>{
+        chrome.devtools.panels.openResource(result, <span class="hljs-number">20</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)
+        </span>{
+            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'資源開啟成功！'</span>);
+        });
+    });
+});
+
+<span class="hljs-comment">// 審查元素</span>
+<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'test_inspect'</span>).addEventListener(<span class="hljs-string">'click'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)
+</span>{
+    chrome.devtools.inspectedWindow.eval(<span class="hljs-string">"inspect(document.images[0])"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">result, isException</span>)</span>{});
+});
+
+<span class="hljs-comment">// 獲取所有資源</span>
+<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'get_all_resources'</span>).addEventListener(<span class="hljs-string">'click'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)
+</span>{
+    chrome.devtools.inspectedWindow.getResources(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">resources</span>)
+    </span>{
+        alert(<span class="hljs-built_in">JSON</span>.stringify(resources));
+    });
+});</code></pre> 
+ <h3 id="除錯技巧">5.5.4.&nbsp;除錯技巧</h3> 
+ <p>修改了devtools頁面的程式碼時，需要先在&nbsp;<a>chrome://extensions</a>&nbsp;頁面按下<code>Ctrl+R</code>重新載入外掛，然後關閉再開啟開發者工具即可，無需重新整理頁面（而且只重新整理頁面不重新整理開發者工具的話是不會生效的）。</p> 
+ <p>由於devtools本身就是開發者工具頁面，所以幾乎沒有方法可以直接除錯它，直接用&nbsp;<code>chrome-extension://extid/devtools.html"</code>的方式開啟頁面肯定報錯，因為不支援相關特殊API，只能先自己寫一些方法遮蔽這些錯誤，除錯通了再放開。</p> 
+ <h2 id="option選項頁">5.6.&nbsp;option(選項頁)</h2> 
+ <p>所謂<code>options</code>頁，就是外掛的設定頁面，有2個入口，一個是右鍵圖示有一個“選項”選單，還有一個在外掛管理頁面：</p> 
+ <p><img alt="" class="has" src="./【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載） - IT閱讀_files/352797-20170711101949603-1425351182.png" referrerpolicy="no-referrer"></p> 
+ <p><img alt="" class="has" src="./【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載） - IT閱讀_files/352797-20170711102004775-83441694.png" referrerpolicy="no-referrer"></p> 
+ <p>在Chrome40以前，options頁面和其它普通頁面沒什麼區別，Chrome40以後則有了一些變化。</p> 
+ <p>我們先看老版的<a href="https://developer.chrome.com/extensions/options" rel="nofollow" target="_blank">options</a><span class="hu-external"></span>：</p> 
+ <pre class="has hljs cpp"><code>{
+    <span class="hljs-comment">// Chrome40以前的外掛配置頁寫法</span>
+    <span class="hljs-string">"options_page"</span>: <span class="hljs-string">"options.html"</span>,
+}</code></pre> 
+ <p>這個頁面裡面的內容就隨你自己發揮了，配置之後在外掛管理頁就會看到一個<code>選項</code>按鈕入口，點進去就是開啟一個網頁，沒啥好講的。</p> 
+ <p>效果:</p> 
+ <p><img alt="" class="has" src="./【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載） - IT閱讀_files/352797-20170711102020962-228055231.png" referrerpolicy="no-referrer"></p> 
+ <p>再來看新版的<a href="https://developer.chrome.com/extensions/optionsV2" rel="nofollow" target="_blank">optionsV2</a><span class="hu-external"></span>：</p> 
+ <pre class="has hljs cpp"><code>{
+    <span class="hljs-string">"options_ui"</span>:
+    {
+        <span class="hljs-string">"page"</span>: <span class="hljs-string">"options.html"</span>,
+        <span class="hljs-comment">// 新增一些預設的樣式，推薦使用</span>
+        <span class="hljs-string">"chrome_style"</span>: <span class="hljs-literal">true</span>
+    },
+}</code></pre> 
+ <p><code>options.html</code>的程式碼我們沒有任何改動，只是配置檔案改了，之後效果如下：</p> 
+ <p><img alt="" class="has" src="./【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載） - IT閱讀_files/352797-20170711102036665-607005369.png" referrerpolicy="no-referrer"></p> 
+ <p>看起來是不是高大上了？</p> 
+ <p>幾點注意：</p> 
+ <ul>
+  <li>為了相容，建議2種都寫，如果都寫了，Chrome40以後會預設讀取新版的方式；</li> 
+  <li>新版options中不能使用alert；</li> 
+  <li>資料儲存建議用chrome.storage，因為會隨使用者自動同步；</li> 
+ </ul>
+ <h2 id="omnibox">5.7.&nbsp;omnibox</h2> 
+ <p><code>omnibox</code>是向用戶提供搜尋建議的一種方式。先來看個<code>gif</code>圖以便了解一下這東西到底是個什麼鬼：</p> 
+ <p><img alt="" class="has" src="./【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載） - IT閱讀_files/352797-20170711102052275-866111894.gif" referrerpolicy="no-referrer"></p> 
+ <p>註冊某個關鍵字以觸發外掛自己的搜尋建議介面，然後可以任意發揮了。</p> 
+ <p>首先，配置檔案如下：</p> 
+ <pre class="has hljs cpp"><code>{
+    <span class="hljs-comment">// 向地址欄註冊一個關鍵字以提供搜尋建議，只能設定一個關鍵字</span>
+    <span class="hljs-string">"omnibox"</span>: { <span class="hljs-string">"keyword"</span> : <span class="hljs-string">"go"</span> },
+}</code></pre> 
+ <p>然後<code>background.js</code>中註冊監聽事件：</p> 
+ <pre class="has hljs javascript"><code><span class="hljs-comment">// omnibox 演示</span>
+chrome.omnibox.onInputChanged.addListener(<span class="hljs-function">(<span class="hljs-params">text, suggest</span>) =&gt;</span> {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'inputChanged: '</span> + text);
+    <span class="hljs-keyword">if</span>(!text) <span class="hljs-keyword">return</span>;
+    <span class="hljs-keyword">if</span>(text == <span class="hljs-string">'美女'</span>) {
+        suggest([
+            {<span class="hljs-attr">content</span>: <span class="hljs-string">'中國'</span> + text, <span class="hljs-attr">description</span>: <span class="hljs-string">'你要找“中國美女”嗎？'</span>},
+            {<span class="hljs-attr">content</span>: <span class="hljs-string">'日本'</span> + text, <span class="hljs-attr">description</span>: <span class="hljs-string">'你要找“日本美女”嗎？'</span>},
+            {<span class="hljs-attr">content</span>: <span class="hljs-string">'泰國'</span> + text, <span class="hljs-attr">description</span>: <span class="hljs-string">'你要找“泰國美女或人妖”嗎？'</span>},
+            {<span class="hljs-attr">content</span>: <span class="hljs-string">'韓國'</span> + text, <span class="hljs-attr">description</span>: <span class="hljs-string">'你要找“韓國美女”嗎？'</span>}
+        ]);
+    }
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(text == <span class="hljs-string">'微博'</span>) {
+        suggest([
+            {<span class="hljs-attr">content</span>: <span class="hljs-string">'新浪'</span> + text, <span class="hljs-attr">description</span>: <span class="hljs-string">'新浪'</span> + text},
+            {<span class="hljs-attr">content</span>: <span class="hljs-string">'騰訊'</span> + text, <span class="hljs-attr">description</span>: <span class="hljs-string">'騰訊'</span> + text},
+            {<span class="hljs-attr">content</span>: <span class="hljs-string">'搜狐'</span> + text, <span class="hljs-attr">description</span>: <span class="hljs-string">'搜尋'</span> + text},
+        ]);
+    }
+    <span class="hljs-keyword">else</span> {
+        suggest([
+            {<span class="hljs-attr">content</span>: <span class="hljs-string">'百度搜索 '</span> + text, <span class="hljs-attr">description</span>: <span class="hljs-string">'百度搜索 '</span> + text},
+            {<span class="hljs-attr">content</span>: <span class="hljs-string">'谷歌搜尋 '</span> + text, <span class="hljs-attr">description</span>: <span class="hljs-string">'谷歌搜尋 '</span> + text},
+        ]);
+    }
+});
+
+<span class="hljs-comment">// 當用戶接收關鍵字建議時觸發</span>
+chrome.omnibox.onInputEntered.addListener(<span class="hljs-function">(<span class="hljs-params">text</span>) =&gt;</span> {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'inputEntered: '</span> + text);
+    <span class="hljs-keyword">if</span>(!text) <span class="hljs-keyword">return</span>;
+    <span class="hljs-keyword">var</span> href = <span class="hljs-string">''</span>;
+    <span class="hljs-keyword">if</span>(text.endsWith(<span class="hljs-string">'美女'</span>)) href = <span class="hljs-string">'http://image.baidu.com/search/index?tn=baiduimage&amp;ie=utf-8&amp;word='</span> + text;
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(text.startsWith(<span class="hljs-string">'百度搜索'</span>)) href = <span class="hljs-string">'https://www.baidu.com/s?ie=UTF-8&amp;wd='</span> + text.replace(<span class="hljs-string">'百度搜索 '</span>, <span class="hljs-string">''</span>);
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(text.startsWith(<span class="hljs-string">'谷歌搜尋'</span>)) href = <span class="hljs-string">'https://www.google.com.tw/search?q='</span> + text.replace(<span class="hljs-string">'谷歌搜尋 '</span>, <span class="hljs-string">''</span>);
+    <span class="hljs-keyword">else</span> href = <span class="hljs-string">'https://www.baidu.com/s?ie=UTF-8&amp;wd='</span> + text;
+    openUrlCurrentTab(href);
+});
+<span class="hljs-comment">// 獲取當前選項卡ID</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getCurrentTabId</span>(<span class="hljs-params">callback</span>)
+</span>{
+    chrome.tabs.query({<span class="hljs-attr">active</span>: <span class="hljs-literal">true</span>, <span class="hljs-attr">currentWindow</span>: <span class="hljs-literal">true</span>}, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">tabs</span>)
+    </span>{
+        <span class="hljs-keyword">if</span>(callback) callback(tabs.length ? tabs[<span class="hljs-number">0</span>].id: <span class="hljs-literal">null</span>);
+    });
+}
+
+<span class="hljs-comment">// 當前標籤開啟某個連結</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">openUrlCurrentTab</span>(<span class="hljs-params">url</span>)
+</span>{
+    getCurrentTabId(<span class="hljs-function"><span class="hljs-params">tabId</span> =&gt;</span> {
+        chrome.tabs.update(tabId, {<span class="hljs-attr">url</span>: url});
+    })
+}</code></pre> 
+ <h2 id="桌面通知">5.8.&nbsp;桌面通知</h2> 
+ <p>Chrome提供了一個<code>chrome.notifications</code>API以便外掛推送桌面通知，暫未找到<code>chrome.notifications</code>和HTML5自帶的<code>Notification</code>的顯著區別及優勢。</p> 
+ <p>在後臺JS中，無論是使用<code>chrome.notifications</code>還是<code>Notification</code>都不需要申請許可權（HTML5方式需要申請許可權），直接使用即可。</p> 
+ <p>最簡單的通知：</p> 
+ <p><img alt="" class="has" src="./【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載） - IT閱讀_files/352797-20170711102111697-515392377.png" referrerpolicy="no-referrer"></p> 
+ <p>程式碼：</p> 
+ <pre class="has hljs css"><code><span class="hljs-selector-tag">chrome</span><span class="hljs-selector-class">.notifications</span><span class="hljs-selector-class">.create</span>(<span class="hljs-selector-tag">null</span>, {
+    <span class="hljs-attribute">type</span>: <span class="hljs-string">'basic'</span>,
+    iconUrl: <span class="hljs-string">'img/icon.png'</span>,
+    title: <span class="hljs-string">'這是標題'</span>,
+    message: <span class="hljs-string">'您剛才點選了自定義右鍵選單！'</span>
+});</code></pre> 
+ <p>通知的樣式可以很豐富：</p> 
+ <p><img alt="" class="has" src="./【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載） - IT閱讀_files/352797-20170711102121415-1959756640.png" referrerpolicy="no-referrer"></p> 
+ <p>這個沒有深入研究，有需要的可以去看官方文件。</p> 
+ <h1 id="種類型的js對比">5種類型的JS對比</h1> 
+ <p>Chrome外掛的JS主要可以分為這5類：<code>injected script</code>、<code>content-script</code>、<code>popup js</code>、<code>background js</code>和<code>devtools js</code>，</p> 
+ <h2 id="許可權對比">6.1.&nbsp;許可權對比</h2> 
+ <table>
+  <thead>
+   <tr>
+    <th>JS種類</th> 
+    <th>可訪問的API</th> 
+    <th>DOM訪問情況</th> 
+    <th>JS訪問情況</th> 
+    <th>直接跨域</th> 
+   </tr>
+  </thead>
+  <tbody>
+   <tr class="alt">
+    <td>injected script</td> 
+    <td>和普通JS無任何差別，不能訪問任何擴充套件API</td> 
+    <td>可以訪問</td> 
+    <td>可以訪問</td> 
+    <td>不可以</td> 
+   </tr>
+   <tr>
+    <td>content script</td> 
+    <td>只能訪問 extension、runtime等部分API</td> 
+    <td>可以訪問</td> 
+    <td>不可以</td> 
+    <td>不可以</td> 
+   </tr>
+   <tr class="alt">
+    <td>popup js</td> 
+    <td>可訪問絕大部分API，除了devtools系列</td> 
+    <td>不可直接訪問</td> 
+    <td>不可以</td> 
+    <td>可以</td> 
+   </tr>
+   <tr>
+    <td>background js</td> 
+    <td>可訪問絕大部分API，除了devtools系列</td> 
+    <td>不可直接訪問</td> 
+    <td>不可以</td> 
+    <td>可以</td> 
+   </tr>
+   <tr class="alt">
+    <td>devtools js</td> 
+    <td>只能訪問 devtools、extension、runtime等部分API</td> 
+    <td>可以</td> 
+    <td>可以</td> 
+    <td>不可以</td> 
+   </tr>
+  </tbody>
+ </table>
+ <h2 id="除錯方式對比">6.2.&nbsp;除錯方式對比</h2> 
+ <table>
+  <thead>
+   <tr>
+    <th>JS型別</th> 
+    <th>除錯方式</th> 
+    <th>圖片說明</th> 
+   </tr>
+  </thead>
+  <tbody>
+   <tr class="alt">
+    <td>injected script</td> 
+    <td>直接普通的F12即可</td> 
+    <td>懶得截圖</td> 
+   </tr>
+   <tr>
+    <td>content-script</td> 
+    <td>開啟Console,如圖切換</td> 
+    <td><img alt="" class="has" src="./【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載） - IT閱讀_files/352797-20170712142454118-1741772825.png" referrerpolicy="no-referrer"></td> 
+   </tr>
+   <tr class="alt">
+    <td>popup-js</td> 
+    <td>popup頁面右鍵審查元素</td> 
+    <td><img alt="" class="has" src="./【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載） - IT閱讀_files/352797-20170712142508275-102456585.png" referrerpolicy="no-referrer"></td> 
+   </tr>
+   <tr>
+    <td>background</td> 
+    <td>外掛管理頁點選背景頁即可</td> 
+    <td><img alt="" class="has" src="./【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載） - IT閱讀_files/352797-20170712142524665-745904947.png" referrerpolicy="no-referrer"></td> 
+   </tr>
+   <tr class="alt">
+    <td>devtools-js</td> 
+    <td>暫未找到有效方法</td> 
+    <td>-</td> 
+   </tr>
+  </tbody>
+ </table>
+ <h1 id="訊息通訊">訊息通訊</h1> 
+ <p>通訊主頁：<a href="https://developer.chrome.com/extensions/messaging" rel="nofollow" target="_blank">https://developer.chrome.com/extensions/messaging</a><span class="hu-external"></span></p> 
+ <p>前面我們介紹了Chrome外掛中存在的5種JS，那麼它們之間如何互相通訊呢？下面先來系統概況一下，然後再分類細說。需要知道的是，popup和background其實幾乎可以視為一種東西，因為它們可訪問的API都一樣、通訊機制一樣、都可以跨域。</p> 
+ <h2 id="互相通訊概覽">7.1.&nbsp;互相通訊概覽</h2> 
+ <p>注：<code>-</code>表示不存在或者無意義，或者待驗證。</p> 
+ <table>
+  <thead>
+   <tr>
+    <th>&nbsp;</th> 
+    <th>injected-script</th> 
+    <th>content-script</th> 
+    <th>popup-js</th> 
+    <th>background-js</th> 
+   </tr>
+  </thead>
+  <tbody>
+   <tr class="alt">
+    <td>injected-script</td> 
+    <td>-</td> 
+    <td>window.postMessage</td> 
+    <td>-</td> 
+    <td>-</td> 
+   </tr>
+   <tr>
+    <td>content-script</td> 
+    <td>window.postMessage</td> 
+    <td>-</td> 
+    <td>chrome.runtime.sendMessage chrome.runtime.connect</td> 
+    <td>chrome.runtime.sendMessage chrome.runtime.connect</td> 
+   </tr>
+   <tr class="alt">
+    <td>popup-js</td> 
+    <td>-</td> 
+    <td>chrome.tabs.sendMessage chrome.tabs.connect</td> 
+    <td>-</td> 
+    <td>chrome.extension. getBackgroundPage()</td> 
+   </tr>
+   <tr>
+    <td>background-js</td> 
+    <td>-</td> 
+    <td>chrome.tabs.sendMessage chrome.tabs.connect</td> 
+    <td>chrome.extension.getViews</td> 
+    <td>-</td> 
+   </tr>
+   <tr class="alt">
+    <td>devtools-js</td> 
+    <td>chrome.devtools. inspectedWindow.eval</td> 
+    <td>-</td> 
+    <td>chrome.runtime.sendMessage</td> 
+    <td>chrome.runtime.sendMessage</td> 
+   </tr>
+  </tbody>
+ </table>
+ <h2 id="通訊詳細介紹">7.2.&nbsp;通訊詳細介紹</h2> 
+ <h3 id="popup和background">7.2.1.&nbsp;popup和background</h3> 
+ <p>popup可以直接呼叫background中的JS方法，也可以直接訪問background的DOM：</p> 
+ <pre class="has hljs javascript"><code><span class="hljs-comment">// background.js</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">test</span>(<span class="hljs-params"></span>)
+</span>{
+    alert(<span class="hljs-string">'我是background！'</span>);
+}
+
+<span class="hljs-comment">// popup.js</span>
+<span class="hljs-keyword">var</span> bg = chrome.extension.getBackgroundPage();
+bg.test(); <span class="hljs-comment">// 訪問bg的函式</span>
+alert(bg.document.body.innerHTML); <span class="hljs-comment">// 訪問bg的DOM</span></code></pre> 
+ <blockquote> 
+  <p>小插曲，今天碰到一個情況，發現popup無法獲取background的任何方法，找了半天才發現是因為background的js報錯了，而你如果不主動檢視background的js的話，是看不到錯誤資訊的，特此提醒。</p> 
+ </blockquote> 
+ <p>至於<code>background</code>訪問<code>popup</code>如下（前提是<code>popup</code>已經開啟）：</p> 
+ <pre class="has hljs javascript"><code><span class="hljs-keyword">var</span> views = chrome.extension.getViews({<span class="hljs-attr">type</span>:<span class="hljs-string">'popup'</span>});
+<span class="hljs-keyword">if</span>(views.length &gt; <span class="hljs-number">0</span>) {
+    <span class="hljs-built_in">console</span>.log(views[<span class="hljs-number">0</span>].location.href);
+}</code></pre> 
+ <h3 id="popup或者bg向content主動傳送訊息">7.2.2.&nbsp;popup或者bg向content主動傳送訊息</h3> 
+ <p>background.js或者popup.js：</p> 
+ <pre class="has hljs javascript"><code><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sendMessageToContentScript</span>(<span class="hljs-params">message, callback</span>)
+</span>{
+    chrome.tabs.query({<span class="hljs-attr">active</span>: <span class="hljs-literal">true</span>, <span class="hljs-attr">currentWindow</span>: <span class="hljs-literal">true</span>}, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">tabs</span>)
+    </span>{
+        chrome.tabs.sendMessage(tabs[<span class="hljs-number">0</span>].id, message, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">response</span>)
+        </span>{
+            <span class="hljs-keyword">if</span>(callback) callback(response);
+        });
+    });
+}
+sendMessageToContentScript({<span class="hljs-attr">cmd</span>:<span class="hljs-string">'test'</span>, <span class="hljs-attr">value</span>:<span class="hljs-string">'你好，我是popup！'</span>}, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">response</span>)
+</span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'來自content的回覆：'</span>+response);
+});</code></pre> 
+ <p><code>content-script.js</code>接收：</p> 
+ <pre class="has hljs javascript"><code>chrome.runtime.onMessage.addListener(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">request, sender, sendResponse</span>)
+</span>{
+    <span class="hljs-comment">// console.log(sender.tab ?"from a content script:" + sender.tab.url :"from the extension");</span>
+    <span class="hljs-keyword">if</span>(request.cmd == <span class="hljs-string">'test'</span>) alert(request.value);
+    sendResponse(<span class="hljs-string">'我收到了你的訊息！'</span>);
+});</code></pre> 
+ <p>雙方通訊直接傳送的都是JSON物件，不是JSON字串，所以無需解析，很方便（當然也可以直接傳送字串）。</p> 
+ <blockquote> 
+  <p>網上有些老程式碼中用的是<code>chrome.extension.onMessage</code>，沒有完全查清二者的區別(貌似是別名)，但是建議統一使用<code>chrome.runtime.onMessage</code>。</p> 
+ </blockquote> 
+ <h3 id="content-script主動發訊息給後臺">7.2.3.&nbsp;content-script主動發訊息給後臺</h3> 
+ <p>content-script.js：</p> 
+ <pre class="has hljs javascript"><code>chrome.runtime.sendMessage({<span class="hljs-attr">greeting</span>: <span class="hljs-string">'你好，我是content-script呀，我主動發訊息給後臺！'</span>}, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">response</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'收到來自後臺的回覆：'</span> + response);
+});</code></pre> 
+ <p>background.js 或者 popup.js：</p> 
+ <pre class="has hljs javascript"><code><span class="hljs-comment">// 監聽來自content-script的訊息</span>
+chrome.runtime.onMessage.addListener(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">request, sender, sendResponse</span>)
+</span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'收到來自content-script的訊息：'</span>);
+    <span class="hljs-built_in">console</span>.log(request, sender, sendResponse);
+    sendResponse(<span class="hljs-string">'我是後臺，我已收到你的訊息：'</span> + <span class="hljs-built_in">JSON</span>.stringify(request));
+});</code></pre> 
+ <p>注意事項：</p> 
+ <ul>
+  <li>content_scripts向<code>popup</code>主動發訊息的前提是popup必須開啟！否則需要利用background作中轉；</li> 
+  <li>如果background和popup同時監聽，那麼它們都可以同時收到訊息，但是隻有一個可以sendResponse，一個先發送了，那麼另外一個再發送就無效；</li> 
+ </ul>
+ <h3 id="injected-script和content-script">7.2.4.&nbsp;injected script和content-script</h3> 
+ <p><code>content-script</code>和頁面內的指令碼（<code>injected-script</code>自然也屬於頁面內的指令碼）之間唯一共享的東西就是頁面的DOM元素，有2種方法可以實現二者通訊：</p> 
+ <ol>
+  <li>可以通過<code>window.postMessage</code>和<code>window.addEventListener</code>來實現二者訊息通訊；</li> 
+  <li>通過自定義DOM事件來實現；</li> 
+ </ol>
+ <p>第一種方法（推薦）：</p> 
+ <p><code>injected-script</code>中：</p> 
+ <pre class="has hljs coffeescript"><code><span class="hljs-built_in">window</span>.postMessage({<span class="hljs-string">"test"</span>: <span class="hljs-string">'你好！'</span>}, <span class="hljs-string">'*'</span>);</code></pre> 
+ <p>content script中：</p> 
+ <pre class="has hljs javascript"><code><span class="hljs-built_in">window</span>.addEventListener(<span class="hljs-string">"message"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e</span>)
+</span>{
+    <span class="hljs-built_in">console</span>.log(e.data);
+}, <span class="hljs-literal">false</span>);</code></pre> 
+ <p>第二種方法：</p> 
+ <p><code>injected-script</code>中：</p> 
+ <pre class="has hljs javascript"><code><span class="hljs-keyword">var</span> customEvent = <span class="hljs-built_in">document</span>.createEvent(<span class="hljs-string">'Event'</span>);
+customEvent.initEvent(<span class="hljs-string">'myCustomEvent'</span>, <span class="hljs-literal">true</span>, <span class="hljs-literal">true</span>);
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fireCustomEvent</span>(<span class="hljs-params">data</span>) </span>{
+    hiddenDiv = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'myCustomEventDiv'</span>);
+    hiddenDiv.innerText = data
+    hiddenDiv.dispatchEvent(customEvent);
+}
+fireCustomEvent(<span class="hljs-string">'你好，我是普通JS！'</span>);</code></pre> 
+ <p><code>content-script.js</code>中：</p> 
+ <pre class="has hljs javascript"><code><span class="hljs-keyword">var</span> hiddenDiv = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'myCustomEventDiv'</span>);
+<span class="hljs-keyword">if</span>(!hiddenDiv) {
+    hiddenDiv = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">'div'</span>);
+    hiddenDiv.style.display = <span class="hljs-string">'none'</span>;
+    <span class="hljs-built_in">document</span>.body.appendChild(hiddenDiv);
+}
+hiddenDiv.addEventListener(<span class="hljs-string">'myCustomEvent'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">var</span> eventData = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'myCustomEventDiv'</span>).innerText;
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'收到自定義事件訊息：'</span> + eventData);
+});</code></pre> 
+ <h2 id="長連線和短連線">7.3.&nbsp;長連線和短連線</h2> 
+ <p>其實上面已經涉及到了，這裡再單獨說明一下。Chrome外掛中有2種通訊方式，一個是短連線（<code>chrome.tabs.sendMessage</code>和<code>chrome.runtime.sendMessage</code>），一個是長連線（<code>chrome.tabs.connect</code>和<code>chrome.runtime.connect</code>）。</p> 
+ <p>短連線的話就是擠牙膏一樣，我傳送一下，你收到了再回復一下，如果對方不回覆，你只能重新發，而長連線類似<code>WebSocket</code>會一直建立連線，雙方可以隨時互發訊息。</p> 
+ <p>短連線上面已經有程式碼示例了，這裡只講一下長連線。</p> 
+ <p>popup.js：</p> 
+ <pre class="has hljs javascript"><code>getCurrentTabId(<span class="hljs-function">(<span class="hljs-params">tabId</span>) =&gt;</span> {
+    <span class="hljs-keyword">var</span> port = chrome.tabs.connect(tabId, {<span class="hljs-attr">name</span>: <span class="hljs-string">'test-connect'</span>});
+    port.postMessage({<span class="hljs-attr">question</span>: <span class="hljs-string">'你是誰啊？'</span>});
+    port.onMessage.addListener(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">msg</span>) </span>{
+        alert(<span class="hljs-string">'收到訊息：'</span>+msg.answer);
+        <span class="hljs-keyword">if</span>(msg.answer &amp;&amp; msg.answer.startsWith(<span class="hljs-string">'我是'</span>))
+        {
+            port.postMessage({<span class="hljs-attr">question</span>: <span class="hljs-string">'哦，原來是你啊！'</span>});
+        }
+    });
+});</code></pre> 
+ <p>content-script.js：</p> 
+ <pre class="has hljs javascript"><code><span class="hljs-comment">// 監聽長連線</span>
+chrome.runtime.onConnect.addListener(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">port</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(port);
+    <span class="hljs-keyword">if</span>(port.name == <span class="hljs-string">'test-connect'</span>) {
+        port.onMessage.addListener(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">msg</span>) </span>{
+            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'收到長連線訊息：'</span>, msg);
+            <span class="hljs-keyword">if</span>(msg.question == <span class="hljs-string">'你是誰啊？'</span>) port.postMessage({<span class="hljs-attr">answer</span>: <span class="hljs-string">'我是你爸！'</span>});
+        });
+    }
+});</code></pre> 
+ <h1 id="其它補充">其它補充</h1> 
+ <h2 id="動態注入或執行js">8.1.&nbsp;動態注入或執行JS</h2> 
+ <p>雖然在<code>background</code>和<code>popup</code>中無法直接訪問頁面DOM，但是可以通過<code>chrome.tabs.executeScript</code>來執行指令碼，從而實現訪問web頁面的DOM（注意，這種方式也不能直接訪問頁面JS）。</p> 
+ <p>示例<code>manifest.json</code>配置：</p> 
+ <pre class="has hljs bash"><code>{
+    <span class="hljs-string">"name"</span>: <span class="hljs-string">"動態JS注入演示"</span>,
+    ...
+    <span class="hljs-string">"permissions"</span>: [
+        <span class="hljs-string">"tabs"</span>, <span class="hljs-string">"http://*/*"</span>, <span class="hljs-string">"https://*/*"</span>
+    ],
+    ...
+}</code></pre> 
+ <p>JS：</p> 
+ <pre class="has hljs cs"><code><span class="hljs-comment">// 動態執行JS程式碼</span>
+chrome.tabs.executeScript(tabId, {code: <span class="hljs-string">'document.body.style.backgroundColor="red"'</span>});
+<span class="hljs-comment">// 動態執行JS檔案</span>
+chrome.tabs.executeScript(tabId, {file: <span class="hljs-string">'some-script.js'</span>});</code></pre> 
+ <h2 id="動態注入css">8.2.&nbsp;動態注入CSS</h2> 
+ <p>示例<code>manifest.json</code>配置：</p> 
+ <pre class="has hljs bash"><code>{
+    <span class="hljs-string">"name"</span>: <span class="hljs-string">"動態CSS注入演示"</span>,
+    ...
+    <span class="hljs-string">"permissions"</span>: [
+        <span class="hljs-string">"tabs"</span>, <span class="hljs-string">"http://*/*"</span>, <span class="hljs-string">"https://*/*"</span>
+    ],
+    ...
+}</code></pre> 
+ <p>JS程式碼：</p> 
+ <pre class="has hljs cs"><code><span class="hljs-comment">// 動態執行CSS程式碼，TODO，這裡有待驗證</span>
+chrome.tabs.insertCSS(tabId, {code: <span class="hljs-string">'xxx'</span>});
+<span class="hljs-comment">// 動態執行CSS檔案</span>
+chrome.tabs.insertCSS(tabId, {file: <span class="hljs-string">'some-style.css'</span>});</code></pre> 
+ <h2 id="獲取當前視窗id">8.3.&nbsp;獲取當前視窗ID</h2> 
+ <pre class="has hljs javascript"><code>chrome.windows.getCurrent(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">currentWindow</span>)
+</span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'當前視窗ID：'</span> + currentWindow.id);
+});</code></pre> 
+ <h2 id="獲取當前標籤頁id">8.4.&nbsp;獲取當前標籤頁ID</h2> 
+ <p>一般有2種方法：</p> 
+ <pre class="has hljs javascript"><code><span class="hljs-comment">// 獲取當前選項卡ID</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getCurrentTabId</span>(<span class="hljs-params">callback</span>)
+</span>{
+    chrome.tabs.query({<span class="hljs-attr">active</span>: <span class="hljs-literal">true</span>, <span class="hljs-attr">currentWindow</span>: <span class="hljs-literal">true</span>}, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">tabs</span>)
+    </span>{
+        <span class="hljs-keyword">if</span>(callback) callback(tabs.length ? tabs[<span class="hljs-number">0</span>].id: <span class="hljs-literal">null</span>);
+    });
+}</code></pre> 
+ <p>獲取當前選項卡id的另一種方法，大部分時候都類似，只有少部分時候會不一樣（例如當視窗最小化時）</p> 
+ <pre class="has hljs javascript"><code><span class="hljs-comment">// 獲取當前選項卡ID</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getCurrentTabId2</span>(<span class="hljs-params"></span>)
+</span>{
+    chrome.windows.getCurrent(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">currentWindow</span>)
+    </span>{
+        chrome.tabs.query({<span class="hljs-attr">active</span>: <span class="hljs-literal">true</span>, <span class="hljs-attr">windowId</span>: currentWindow.id}, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">tabs</span>)
+        </span>{
+            <span class="hljs-keyword">if</span>(callback) callback(tabs.length ? tabs[<span class="hljs-number">0</span>].id: <span class="hljs-literal">null</span>);
+        });
+    });
+}</code></pre> 
+ <h2 id="本地儲存">8.5.&nbsp;本地儲存</h2> 
+ <p>本地儲存建議用<code>chrome.storage</code>而不是普通的<code>localStorage</code>，區別有好幾點，個人認為最重要的2點區別是：</p> 
+ <ul>
+  <li><code>chrome.storage</code>是針對外掛全域性的，即使你在<code>background</code>中儲存的資料，在<code>content-script</code>也能獲取到；</li> 
+  <li><code>chrome.storage.sync</code>可以跟隨當前登入使用者自動同步，這臺電腦修改的設定會自動同步到其它電腦，很方便，如果沒有登入或者未聯網則先儲存到本地，等登入了再同步至網路；</li> 
+ </ul>
+ <p>需要宣告<code>storage</code>許可權，有<code>chrome.storage.sync</code>和<code>chrome.storage.local</code>2種方式可供選擇，使用示例如下：</p> 
+ <pre class="has hljs javascript"><code><span class="hljs-comment">// 讀取資料，第一個引數是指定要讀取的key以及設定預設值</span>
+chrome.storage.sync.get({<span class="hljs-attr">color</span>: <span class="hljs-string">'red'</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">18</span>}, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">items</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(items.color, items.age);
+});
+<span class="hljs-comment">// 儲存資料</span>
+chrome.storage.sync.set({<span class="hljs-attr">color</span>: <span class="hljs-string">'blue'</span>}, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'儲存成功！'</span>);
+});</code></pre> 
+ <h2 id="webrequest">8.6.&nbsp;webRequest</h2> 
+ <p>通過webRequest系列API可以對HTTP請求進行任性地修改、定製，這裡通過<code>beforeRequest</code>來簡單演示一下它的冰山一角：</p> 
+ <pre class="has hljs javascript"><code><span class="hljs-comment">//manifest.json</span>
+{
+    <span class="hljs-comment">// 許可權申請</span>
+    <span class="hljs-string">"permissions"</span>:
+    [
+        <span class="hljs-string">"webRequest"</span>, <span class="hljs-comment">// web請求</span>
+        <span class="hljs-string">"webRequestBlocking"</span>, <span class="hljs-comment">// 阻塞式web請求</span>
+        <span class="hljs-string">"storage"</span>, <span class="hljs-comment">// 外掛本地儲存</span>
+        <span class="hljs-string">"http://*/*"</span>, <span class="hljs-comment">// 可以通過executeScript或者insertCSS訪問的網站</span>
+        <span class="hljs-string">"https://*/*"</span> <span class="hljs-comment">// 可以通過executeScript或者insertCSS訪問的網站</span>
+    ],
+}
+
+
+<span class="hljs-comment">// background.js</span>
+<span class="hljs-comment">// 是否顯示圖片</span>
+<span class="hljs-keyword">var</span> showImage;
+chrome.storage.sync.get({<span class="hljs-attr">showImage</span>: <span class="hljs-literal">true</span>}, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">items</span>) </span>{
+    showImage = items.showImage;
+});
+<span class="hljs-comment">// web請求監聽，最後一個引數表示阻塞式，需單獨宣告許可權：webRequestBlocking</span>
+chrome.webRequest.onBeforeRequest.addListener(<span class="hljs-function"><span class="hljs-params">details</span> =&gt;</span> {
+    <span class="hljs-comment">// cancel 表示取消本次請求</span>
+    <span class="hljs-keyword">if</span>(!showImage &amp;&amp; details.type == <span class="hljs-string">'image'</span>) <span class="hljs-keyword">return</span> {<span class="hljs-attr">cancel</span>: <span class="hljs-literal">true</span>};
+    <span class="hljs-comment">// 簡單的音視訊檢測</span>
+    <span class="hljs-comment">// 大部分網站視訊的type並不是media，且視訊做了防下載處理，所以這裡僅僅是為了演示效果，無實際意義</span>
+    <span class="hljs-keyword">if</span>(details.type == <span class="hljs-string">'media'</span>) {
+        chrome.notifications.create(<span class="hljs-literal">null</span>, {
+            <span class="hljs-attr">type</span>: <span class="hljs-string">'basic'</span>,
+            <span class="hljs-attr">iconUrl</span>: <span class="hljs-string">'img/icon.png'</span>,
+            <span class="hljs-attr">title</span>: <span class="hljs-string">'檢測到音視訊'</span>,
+            <span class="hljs-attr">message</span>: <span class="hljs-string">'音視訊地址：'</span> + details.url,
+        });
+    }
+}, {<span class="hljs-attr">urls</span>: [<span class="hljs-string">"&lt;all_urls&gt;"</span>]}, [<span class="hljs-string">"blocking"</span>]);</code></pre> 
+ <h2 id="國際化">8.7.&nbsp;國際化</h2> 
+ <p>外掛根目錄新建一個名為<code>_locales</code>的資料夾，再在下面新建一些語言的資料夾，如<code>en</code>、<code>zh_CN</code>、<code>zh_TW</code>，然後再在每個資料夾放入一個<code>messages.json</code>，同時必須在清單檔案中設定<code>default_locale</code>。</p> 
+ <p><code>_locales\en\messages.json</code>內容：</p> 
+ <pre class="has hljs json"><code>{
+    <span class="hljs-attr">"pluginDesc"</span>: {<span class="hljs-attr">"message"</span>: <span class="hljs-string">"A simple chrome extension demo"</span>},
+    <span class="hljs-attr">"helloWorld"</span>: {<span class="hljs-attr">"message"</span>: <span class="hljs-string">"Hello World!"</span>}
+}</code></pre> 
+ <p><code>_locales\zh_CN\messages.json</code>內容：</p> 
+ <pre class="has hljs json"><code>{
+    <span class="hljs-attr">"pluginDesc"</span>: {<span class="hljs-attr">"message"</span>: <span class="hljs-string">"一個簡單的Chrome外掛demo"</span>},
+    <span class="hljs-attr">"helloWorld"</span>: {<span class="hljs-attr">"message"</span>: <span class="hljs-string">"你好啊，世界！"</span>}
+}</code></pre> 
+ <p>在<code>manifest.json</code>和<code>CSS</code>檔案中通過<code>__MSG_messagename__</code>引入，如：</p> 
+ <pre class="has hljs cpp"><code>{
+    <span class="hljs-string">"description"</span>: <span class="hljs-string">"__MSG_pluginDesc__"</span>,
+    <span class="hljs-comment">// 預設語言</span>
+    <span class="hljs-string">"default_locale"</span>: <span class="hljs-string">"zh_CN"</span>,
+}</code></pre> 
+ <p>JS中則直接<code>chrome.i18n.getMessage("helloWorld")</code>。</p> 
+ <p>測試時，通過給chrome建立一個不同的快捷方式<code>chrome.exe --lang=en</code>來切換語言，如：</p> 
+ <p><img alt="" class="has" src="./【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載） - IT閱讀_files/352797-20170711102158259-417770023.png" referrerpolicy="no-referrer"></p> 
+ <p>英文效果：</p> 
+ <p><img alt="" class="has" src="./【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載） - IT閱讀_files/352797-20170711102210868-1502746521.png" referrerpolicy="no-referrer"></p> 
+ <p>中文效果：</p> 
+ <p><img alt="" class="has" src="./【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載） - IT閱讀_files/352797-20170711102221478-1089926751.png" referrerpolicy="no-referrer"></p> 
+ <h2 id="api總結">8.8.&nbsp;API總結</h2> 
+ <p>比較常用用的一些API系列：</p> 
+ <ul>
+  <li>chrome.tabs</li> 
+  <li>chrome.runtime</li> 
+  <li>chrome.webRequest</li> 
+  <li>chrome.window</li> 
+  <li>chrome.storage</li> 
+  <li>chrome.contextMenus</li> 
+  <li>chrome.devtools</li> 
+  <li>chrome.extension</li> 
+ </ul>
+ <h1 id="經驗總結">經驗總結</h1> 
+ <h2 id="檢視已安裝外掛路徑">9.1.&nbsp;檢視已安裝外掛路徑</h2> 
+ <p>已安裝的外掛原始碼路徑：<code>C:\Users\使用者名稱\AppData\Local\Google\Chrome\User Data\Default\Extensions</code>，每一個外掛被放在以外掛ID為名的資料夾裡面，想要學習某個外掛的某個功能是如何實現的，看人家的原始碼是最好的方法了：</p> 
+ <p><img alt="" class="has" src="./【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載） - IT閱讀_files/352797-20170711102256712-51940037.png" referrerpolicy="no-referrer"></p> 
+ <p>如何檢視某個外掛的ID？進入&nbsp;<a>chrome://extensions</a>&nbsp;，然後勾線開發者模式即可看到了。</p> 
+ <p><img alt="" class="has" src="./【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載） - IT閱讀_files/352797-20170711102308431-360409003.png" referrerpolicy="no-referrer"></p> 
+ <h2 id="特別注意background的報錯">9.2.&nbsp;特別注意background的報錯</h2> 
+ <p>很多時候你發現你的程式碼會莫名其妙的失效，找來找去又找不到原因，這時開啟background的控制檯才發現原來某個地方寫錯了導致程式碼沒生效，正式由於background報錯的隱蔽性(需要主動開啟對應的控制檯才能看到錯誤)，所以特別注意這點。</p> 
+ <h2 id="如何讓popup頁面不關閉">9.3.&nbsp;如何讓popup頁面不關閉</h2> 
+ <p>在對popup頁面審查元素的時候popup會被強制開啟無法關閉，只有控制檯關閉了才可以關閉popup，原因很簡單：如果popup關閉了控制檯就沒用了。這種方法在某些情況下很實用！</p> 
+ <h2 id="不支援內聯javascript的執行">9.4.&nbsp;不支援內聯JavaScript的執行</h2> 
+ <p>也就是不支援將js直接寫在html中，比如：</p> 
+ <pre class="has hljs bash"><code>&lt;input id=<span class="hljs-string">"btn"</span> <span class="hljs-built_in">type</span>=<span class="hljs-string">"button"</span> value=<span class="hljs-string">"收藏"</span> onclick=<span class="hljs-string">"test()"</span>/&gt;</code></pre> 
+ <p>報錯如下：</p> 
+ <pre class="has hljs sql"><code>Refused to <span class="hljs-keyword">execute</span> inline <span class="hljs-keyword">event</span> <span class="hljs-keyword">handler</span> because it violates the <span class="hljs-keyword">following</span> <span class="hljs-keyword">Content</span> <span class="hljs-keyword">Security</span> <span class="hljs-keyword">Policy</span> directive: <span class="hljs-string">"script-src 'self' blob: filesystem: chrome-extension-resource:"</span>. Either the <span class="hljs-string">'unsafe-inline'</span> keyword, a <span class="hljs-keyword">hash</span> (<span class="hljs-string">'sha256-...'</span>), <span class="hljs-keyword">or</span> a nonce (<span class="hljs-string">'nonce-...'</span>) <span class="hljs-keyword">is</span> <span class="hljs-keyword">required</span> <span class="hljs-keyword">to</span> <span class="hljs-keyword">enable</span> inline execution.</code></pre> 
+ <p>解決方法就是用JS繫結事件：</p> 
+ <pre class="has hljs javascript"><code>$(<span class="hljs-string">'#btn'</span>).on(<span class="hljs-string">'click'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{alert(<span class="hljs-string">'測試'</span>)});</code></pre> 
+ <p>另外，對於A標籤，這樣寫<code>href="javascript:;"</code>然後用JS繫結事件雖然控制檯會報錯，但是不受影響，當然強迫症患者受不了的話只能寫成<code>href="#"</code>了。</p> 
+ <p>如果這樣寫：</p> 
+ <pre class="has hljs xml"><code><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"javascript:;"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"get_secret"</span>&gt;</span>請求secret<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre> 
+ <p>報錯如下：</p> 
+ <pre class="has hljs sql"><code>Refused to <span class="hljs-keyword">execute</span> JavaScript <span class="hljs-keyword">URL</span> because it violates the <span class="hljs-keyword">following</span> <span class="hljs-keyword">Content</span> <span class="hljs-keyword">Security</span> <span class="hljs-keyword">Policy</span> directive: <span class="hljs-string">"script-src 'self' blob: filesystem: chrome-extension-resource:"</span>. Either the <span class="hljs-string">'unsafe-inline'</span> keyword, a <span class="hljs-keyword">hash</span> (<span class="hljs-string">'sha256-...'</span>), <span class="hljs-keyword">or</span> a nonce (<span class="hljs-string">'nonce-...'</span>) <span class="hljs-keyword">is</span> <span class="hljs-keyword">required</span> <span class="hljs-keyword">to</span> <span class="hljs-keyword">enable</span> inline execution.</code></pre> 
+ <h2 id="注入css的時候必須小心">9.5.&nbsp;注入CSS的時候必須小心</h2> 
+ <p>由於通過<code>content_scripts</code>注入的CSS優先順序非常高，幾乎僅次於瀏覽器預設樣式，稍不注意可能就會影響一些網站的展示效果，所以儘量不要寫一些影響全域性的樣式。</p> 
+ <p>之所以強調這個，是因為這個帶來的問題非常隱蔽，不太容易找到，可能你正在寫某個網頁，昨天樣式還是好好的，怎麼今天就突然不行了？然後你辛辛苦苦找來找去，找了半天才發現竟然是因為外掛裡面的一個樣式影響的！</p> 
+ <p><img alt="" class="has" src="./【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載） - IT閱讀_files/352797-20170711102324665-787100296.png" referrerpolicy="no-referrer"></p> 
+ <h1 id="打包與釋出">打包與釋出</h1> 
+ <p>打包的話直接在外掛管理頁有一個打包按鈕：</p> 
+ <p><img alt="" class="has" src="./【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載） - IT閱讀_files/352797-20170711102349728-1968586800.png" referrerpolicy="no-referrer"></p> 
+ <p>然後會生成一個<code>.crx</code>檔案，要釋出到Google應用商店的話需要先登入你的Google賬號，然後花5個$註冊為開發者，本人太窮，就懶得親自驗證了，有釋出需求的自己去整吧。</p> 
+ <p><img alt="" class="has" src="./【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載） - IT閱讀_files/352797-20170711102401665-879882813.png" referrerpolicy="no-referrer"></p> 
+ <h1 id="參考">參考</h1> 
+ <h2 id="官方資料">11.1.&nbsp;官方資料</h2> 
+ <p>推薦檢視官方文件，雖然是英文，但是全且新，國內的中文資料都比較舊（注意以下全部需要FQ）：</p> 
+ <ul>
+  <li><a href="https://developer.chrome.com/extensions" rel="nofollow" target="_blank">Chrome外掛官方文件主頁</a><span class="hu-external"></span></li> 
+  <li><a href="https://developer.chrome.com/extensions/samples" rel="nofollow" target="_blank">Chrome外掛官方示例</a><span class="hu-external"></span></li> 
+  <li><a href="https://developer.chrome.com/extensions/manifest" rel="nofollow" target="_blank">manifest清單檔案</a><span class="hu-external"></span></li> 
+  <li><a href="https://developer.chrome.com/extensions/permissions" rel="nofollow" target="_blank">permissions許可權</a><span class="hu-external"></span></li> 
+  <li><a href="https://developer.chrome.com/extensions/api_index" rel="nofollow" target="_blank">chrome.xxx.api文件</a><span class="hu-external"></span></li> 
+  <li><a href="https://developer.chrome.com/extensions/match_patterns" rel="nofollow" target="_blank">模糊匹配規則語法詳解</a><span class="hu-external"></span></li> 
+ </ul>
+ <h2 id="第三方資料">11.2.&nbsp;第三方資料</h2> 
+ <p>部分中文資料，不是特別推薦：</p> 
+ <ul>
+  <li><a href="http://open.se.360.cn/open/extension_dev/overview.html" rel="nofollow" target="_blank">360安全瀏覽器開發文
+	 <center><ins id="scupio-sc-4995-17522-26274_registed" class="scupioadslot" style="display: inline-block; width: 300px; height: 250px; position: relative;" data-sca-pub="lRIJBAgyQA==" data-sca-web="4995" data-sca-category="17" data-sca-cid="17522" data-sca-slot-type="PRA" data-sca-status="callback" undefined="1"><iframe name="scupioadframe" marginwidth="0" marginheight="0" frameborder="0" id="scupio-sc-4995-17522-26274_frame_f21e6051-0316-4c7f-8f3a-ca100e60bc8d" src="./【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載） - IT閱讀_files/ad(2).html" style="box-sizing: content-box; overflow: hidden; border: 0px; padding: 0px; margin: 0px; width: 300px; height: 250px; display: none;"></iframe><span id="viewability_detector_17522" style="position: absolute; z-index: -99999; background-color: transparent; left: 50%; top: 50%; width: 1px; height: 1px;"></span><ins class="scupioadslot" data-sca-pub="lRIJBAgyQA==" data-sca-web="4995" data-sca-category="17" data-sca-cid="17523" data-sca-slot-type="STA" data-sca-status="done" undefined="3" id="_registed" style="display: inline-block; width: 300px; height: 250px; margin: auto; position: relative;"><iframe name="scupioadframe" marginwidth="0" marginheight="0" frameborder="0" id="sc-1604889190825-172275783139_frame_123c4214-f559-495c-bf2c-a181efc64f07" src="./【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載） - IT閱讀_files/ad(3).html" style="box-sizing: content-box; overflow: hidden; border: 0px; padding: 0px; margin: 0px; width: 300px; height: 250px;"></iframe><span id="viewability_detector_17523" style="position: absolute; z-index: -99999; background-color: transparent; left: 50%; top: 50%; width: 1px; height: 1px;"></span></ins></ins>
+<script async="" src="./【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載） - IT閱讀_files/ad.js.下載"></script>
+<script>
+(function(s, c, u, p, i, o, a, d) {
+    'use strict';
+    var z=function(t,e,r){var a,n=document.createElement('ins'),s=n.style;for(a in n.className='scupioadslot',r&&(n.id=r),t)t.hasOwnProperty(a)&&(s[a]=t[a]);for(a in e)e.hasOwnProperty(a)&&n.setAttribute('data-sca-'+a,e[a]);return n};
+    (d = s.Scupioads = s.Scupioads || []).push({
+        id: u,
+        callback: function() {
+            p = c.getElementById(u);
+            i = p.style;
+            o = 'inline-block';
+            p.appendChild(z({
+                display: o,
+                width: '300px',
+                height: '250px',
+                margin: 'auto'
+            }, {
+                'pub': 'lRIJBAgyQA==',
+                'web': '4995',
+                'category': '17',
+                'cid': '17523',
+                'slot-type': 'STA'
+            }));
+            i.width = '300px';
+            i.height = '250px';
+            i.display = o;
+        }
+    });
+    setTimeout(function(){if(!s.Scupioads.init)for(i=d.length-1;0<=i;i--)if(d[i].id===u){d[i].callback(),d[i].callback=function(){};break}},1e3);
+})(window, document, 'scupio-sc-4995-17522-26274');
+</script></center>
+          <nav class="pagination group">
+                      </nav><!--/.pagination-->
+        </a><span class="hu-external"></span></li></ul></div><a href="http://open.se.360.cn/open/extension_dev/overview.html" rel="nofollow" target="_blank">
+
+    
+        <div class="clear"></div>
+      </a><span class="hu-external"></span></div><!--/.entry--><a href="http://open.se.360.cn/open/extension_dev/overview.html" rel="nofollow" target="_blank">
+
+    </a><span class="hu-external"></span></div><!--/.post-inner--><a href="http://open.se.360.cn/open/extension_dev/overview.html" rel="nofollow">
+  </a></div></article><!--/.post--><a href="http://open.se.360.cn/open/extension_dev/overview.html" rel="nofollow">
+
+<div class="clear"></div>
+
+<p class="post-tags"><span>標籤：</span> java chrome 外掛 頁面 Chrome background js function 直接 </p>
+
+<center>
+</center>
+
+
+<h4 class="heading">
+	<i class="far fa-hand-point-right"></i>您可能也會喜歡…</h4>
+
+ </a><ul class="lrelated-posts group"><a href="http://open.se.360.cn/open/extension_dev/overview.html" rel="nofollow">
+		 	</a><li><a href="http://open.se.360.cn/open/extension_dev/overview.html" rel="nofollow"></a><a href="https://www.itread01.com/content/1541404923.html" target="_blank">【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載）</a> </li>
+    	<li><a href="https://www.itread01.com/content/1542282183.html" target="_blank">【娛樂向】製作Chrome天氣預報擴充套件程式 【乾貨】Chrome外掛(擴充套件)開發全攻略</a> </li>
+    	<li><a href="https://www.itread01.com/content/1567654803.html" target="_blank">MyBatisPlus-7-外掛擴充套件</a> </li>
+    	<li><a href="https://www.itread01.com/content/1550440475.html" target="_blank">Webkit之外掛擴充套件</a> </li>
+    	<li><a href="https://www.itread01.com/content/1550202328.html" target="_blank">QML外掛擴充套件（一）</a> </li>
+    	<li><a href="https://www.itread01.com/content/1548610745.html" target="_blank">[Android 測試] 效能迴歸測試之 MonkeyRunner使用、外掛擴充套件、結合批處理</a> </li>
+    	<li><a href="https://www.itread01.com/content/1547407093.html" target="_blank">用於solr5的ansj分詞外掛擴充套件</a> </li>
+    	<li><a href="https://www.itread01.com/content/1546988054.html" target="_blank">FireFox外掛和擴充套件開發（四）——常見問題的解決</a> </li>
+    	<li><a href="https://www.itread01.com/content/1546828570.html" target="_blank">ECharts--基於力導向佈局圖功能更完善的人物關係圖外掛擴充套件-增加橫縱滾動條</a> </li>
+    	<li><a href="https://www.itread01.com/content/1546670713.html" target="_blank">Sublime Text 3外掛擴充套件</a> </li>
+    	<li><a href="https://www.itread01.com/content/1545793058.html" target="_blank">Visual Studio 2017 外掛擴充套件</a> </li>
+    	<li><a href="https://www.itread01.com/content/1545764228.html" target="_blank">自定義jquery外掛擴充套件</a> </li>
+    	<li><a href="https://www.itread01.com/content/1545507730.html" target="_blank">必備外掛/擴充套件</a> </li>
+    	<li><a href="https://www.itread01.com/content/1545051062.html" target="_blank">vscode開發vue首選項配置及常用外掛擴充套件</a> </li>
+    	<li><a href="https://www.itread01.com/content/1544603234.html" target="_blank">以mybatis-generator為基礎的外掛擴充套件jeasy-mybatis-generator，目前擴充套件了分頁外掛和模板外掛</a> </li>
+     
+</ul><!--/.post-related-->
+
+
+
+        </div><!--/.pad-->
+        </section><!--/.content-->
+          
+
+	<div class="sidebar s1 collapsed" data-position="right" data-layout="col-2cl" data-sb-id="s1" style="transform: translateZ(0px);">
+
+		<a class="sidebar-toggle" title="延伸側邊欄位"><i class="fas icon-sidebar-toggle"></i></a>
+
+		<div class="sidebar-content">
+
+			  			<div class="sidebar-top group">
+                        <p>贊助商廣告</p>
+             
+           			</div>
+		 
+				<ul class="post-nav group">
+      
+ 
+		<li class="previous"> </li>
+  
+  
+		 <li class="next">  </li>
+ 
+	</ul>
+
+<div id="custom_html-3" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"><!-- /109765683/300x250 -->
+<ins id="scupio-sc-4995-17521-400386_registed" class="scupioadslot" style="display: inline-block; width: 300px; height: 250px; position: relative;" data-sca-pub="lRIJBAgyQA==" data-sca-web="4995" data-sca-category="17" data-sca-cid="17521" data-sca-slot-type="PRA" data-sca-status="callback" undefined="2"><iframe name="scupioadframe" marginwidth="0" marginheight="0" frameborder="0" id="scupio-sc-4995-17521-400386_frame_4fdc1e56-0553-4cd1-82d0-dee9eddcd056" src="./【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載） - IT閱讀_files/ad(4).html" style="box-sizing: content-box; overflow: hidden; border: 0px; padding: 0px; margin: 0px; width: 300px; height: 250px; display: none;"></iframe><span id="viewability_detector_17521" style="position: absolute; z-index: -99999; background-color: transparent; left: 50%; top: 50%; width: 1px; height: 1px;"></span><ins class="scupioadslot" data-sca-pub="lRIJBAgyQA==" data-sca-web="4995" data-sca-category="17" data-sca-cid="17518" data-sca-slot-type="STA" data-sca-status="done" undefined="5" id="_registed" style="display: inline-block; width: 300px; height: 250px; margin: auto; position: relative;"><iframe name="scupioadframe" marginwidth="0" marginheight="0" frameborder="0" id="sc-1604889191135-839443439998_frame_3a132a2d-9f8b-4fab-90fd-7ea1445d9c5d" src="./【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載） - IT閱讀_files/ad(5).html" style="box-sizing: content-box; overflow: hidden; border: 0px; padding: 0px; margin: 0px; width: 300px; height: 250px;"></iframe><span id="viewability_detector_17518" style="position: absolute; z-index: -99999; background-color: transparent; left: 50%; top: 50%; width: 1px; height: 1px;"></span></ins></ins>
+<script async="" src="./【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載） - IT閱讀_files/ad.js.下載"></script>
+<script>
+(function(s, c, u, p, i, o, a, d) {
+    'use strict';
+    var z=function(t,e,r){var a,n=document.createElement('ins'),s=n.style;for(a in n.className='scupioadslot',r&&(n.id=r),t)t.hasOwnProperty(a)&&(s[a]=t[a]);for(a in e)e.hasOwnProperty(a)&&n.setAttribute('data-sca-'+a,e[a]);return n};
+    (d = s.Scupioads = s.Scupioads || []).push({
+        id: u,
+        callback: function() {
+            p = c.getElementById(u);
+            i = p.style;
+            o = 'inline-block';
+            p.appendChild(z({
+                display: o,
+                width: '300px',
+                height: '250px',
+                margin: 'auto'
+            }, {
+                'pub': 'lRIJBAgyQA==',
+                'web': '4995',
+                'category': '17',
+                'cid': '17518',
+                'slot-type': 'STA'
+            }));
+            i.width = '300px';
+            i.height = '250px';
+            i.display = o;
+        }
+    });
+    setTimeout(function(){if(!s.Scupioads.init)for(i=d.length-1;0<=i;i--)if(d[i].id===u){d[i].callback(),d[i].callback=function(){};break}},1e3);
+})(window, document, 'scupio-sc-4995-17521-400386');
+</script>
+</div></div><div id="text-7" class="widget widget_text">			 
+		</div>
+        
+        <div id="alxtabs-2" class="widget widget_hu_tabs">
+<h3 class="widget-title"></h3>
+<ul class="alx-tabs-nav group tab-count-3"><li class="alx-tab tab-recent active"><a href="https://www.itread01.com/content/1541404923.html#tab-recent-2" title="熱門文章"><i class="far fa-clock"></i></a></li><li class="alx-tab tab-tags"><a href="https://www.itread01.com/content/1541404923.html#tab-tags-2" title="標籤"><i class="fas fa-star"></i> </a></li></ul>
+	<div class="alx-tabs-container">						
+			<ul id="tab-recent-2" class="alx-tab group" style="display: block;">
+								 
+					      
+                  <li>
+					<div class="tab-item-inner group">
+						 						
+                        <p class="tab-item-title"> <a href="https://www.itread01.com/content/1541404927.html">sql server 2008之 常用快捷鍵積累 </a></p>
+										</div>
+				</li>
+                
+                
+                 <li>
+					<div class="tab-item-inner group">
+						 						
+                        <p class="tab-item-title"> <a href="https://www.itread01.com/content/1541404929.html">struts2自學中“小越坑------之 前臺向後臺傳引數 </a></p>
+										</div>
+				</li>
+                
+                
+                 <li>
+					<div class="tab-item-inner group">
+						 						
+                        <p class="tab-item-title"> <a href="https://www.itread01.com/content/1541404933.html">互融雲數字貨幣購物商城：打造多元數幣生態！ </a></p>
+										</div>
+				</li>
+                
+                
+                 <li>
+					<div class="tab-item-inner group">
+						 						
+                        <p class="tab-item-title"> <a href="https://www.itread01.com/content/1541404982.html">短視訊直播系統平臺是如何實現盈利的？ </a></p>
+										</div>
+				</li>
+                
+                
+                 <li>
+					<div class="tab-item-inner group">
+						 						
+                        <p class="tab-item-title"> <a href="https://www.itread01.com/content/1541404986.html">Linux基礎入門，小白該如何操作Linux系統？ </a></p>
+										</div>
+				</li>
+                
+                
+                 <li>
+					<div class="tab-item-inner group">
+						 						
+                        <p class="tab-item-title"> <a href="https://www.itread01.com/content/1541404989.html">CSS Grid 網格佈局 </a></p>
+										</div>
+				</li>
+                
+                
+                 <li>
+					<div class="tab-item-inner group">
+						 						
+                        <p class="tab-item-title"> <a href="https://www.itread01.com/content/1541404993.html">Linux C 編譯流程（GCC） </a></p>
+										</div>
+				</li>
+                
+                
+                 <li>
+					<div class="tab-item-inner group">
+						 						
+                        <p class="tab-item-title"> <a href="https://www.itread01.com/content/1541404996.html">【簡訊外掛】微贊微信管理系統如何實現簡訊驗證碼功能 </a></p>
+										</div>
+				</li>
+                
+                
+                 <li>
+					<div class="tab-item-inner group">
+						 						
+                        <p class="tab-item-title"> <a href="https://www.itread01.com/content/1541404999.html">“精鋼雲”落地：鞍鋼攜手金山雲推動中國製造 </a></p>
+										</div>
+				</li>
+                
+                
+                 <li>
+					<div class="tab-item-inner group">
+						 						
+                        <p class="tab-item-title"> <a href="https://www.itread01.com/content/1541405002.html">lync server 2010複製狀態失敗問題 </a></p>
+										</div>
+				</li>
+                
+                
+  	 
+				</ul><!--/.alx-tab-->
+
+			<ul id="tab-tags-2" class="alx-tab group" style="display: none;">
+				<li>
+					<a href="https://www.itread01.com/android/" class="tag-cloud-link tag-link-9 tag-link-position-1" style="font-size: 12.15625pt;">Android</a> 	
+					<a href="https://www.itread01.com/study/itools_download.html" class="tag-cloud-link tag-link-9 tag-link-position-1" style="font-size: 12.15625pt;">iTools</a> 
+					<a href="https://www.itread01.com/mysql/" class="tag-cloud-link tag-link-9 tag-link-position-1" style="font-size: 12.15625pt;">Mysql</a> 
+					<a href="https://www.itread01.com/windows/" class="tag-cloud-link tag-link-9 tag-link-position-1" style="font-size: 12.15625pt;">Windows</a> 
+					<a href="https://www.3du.tw/" class="tag-cloud-link tag-link-9 tag-link-position-1" style="font-size: 12.15625pt;">三度辭典</a> 
+					 
+                   </li>
+			</ul><!--/.alx-tab-->
+
+			</div>
+</div>
+		</div><!--/.sidebar-content-->
+
+	</div><!--/.sidebar-->
+
+	
+
+        </div><!--/.main-inner-->
+      </div><!--/.main-->
+    </div><!--/.container-inner-->
+  </div><!--/.container-->
+    <footer id="footer">
+          <nav class="nav-container group" id="nav-footer" data-menu-id="footer-4" data-menu-scrollable="false">
+                      <!-- <div class="ham__navbar-toggler collapsed" aria-expanded="false">
+          <div class="ham__navbar-span-wrapper">
+            <span class="ham-toggler-menu__span"></span>
+          </div>
+        </div> -->
+        <div class="ham__navbar-toggler-two collapsed" title="Menu" aria-expanded="false">
+          <div class="ham__navbar-span-wrapper">
+            <span class="line line-1"></span>
+            <span class="line line-2"></span>
+            <span class="line line-3"></span>
+          </div>
+        </div>
+                    <div class="nav-text"></div>
+        <div class="nav-wrap">
+          <ul id="menu-top-2" class="nav container group">
+           <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-290"><a href="https://www.itread01.com/" rel="nofollow">首頁</a></li>
+		   <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-290"><a href="https://www.itread01.com/study/python-tutorial.html">Python教學</a></li>
+ 
+</ul>        </div>
+      </nav><!--/#nav-footer-->
+    
+    <section class="container" id="footer-bottom">
+      <div class="container-inner">
+
+        <a id="back-to-top" href="https://www.itread01.com/content/1541404923.html#"><i class="fas fa-angle-up"></i></a>
+
+        <div class="pad group">
+
+          <div class="grid one-half">
+                        
+            <div id="copyright">
+                              <p>ITREAD01.COM © 2018. 版權所有。 </p>
+                          </div><!--/#copyright-->
+          </div>
+        </div><!--/.pad-->
+
+      </div><!--/.container-inner-->
+    </section><!--/.container-->
+
+  </footer><!--/#footer-->
+
+</div><!--/#wrapper-->
+
+<!-- Powered by WPtouch: 4.3.27 --><script type="text/javascript" src="./【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載） - IT閱讀_files/jQuerySharrre.min.js.下載"></script>
+<script type="text/javascript" src="./【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載） - IT閱讀_files/underscore.min.js.下載"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var HUParams = {"_disabled":[],"SmoothScroll":{"Enabled":true,"Options":{"touchpadSupport":false}},"centerAllImg":"1","timerOnScrollAllBrowsers":"1","extLinksStyle":"1","extLinksTargetExt":"1","extLinksSkipSelectors":{"classes":["btn","button"],"ids":[]},"imgSmartLoadEnabled":"","imgSmartLoadOpts":{"parentSelectors":[".container .content",".container .sidebar","#footer","#header-widgets"],"opts":{"excludeImg":[".tc-holder-img"],"fadeIn_options":100}},"goldenRatio":"1.618","gridGoldenRatioLimit":"350","sbStickyUserSettings":{"desktop":true,"mobile":false},"isWPMobile":"","menuStickyUserSettings":{"desktop":"stick_up","mobile":"stick_up"},"isDevMode":"","ajaxUrl":"https:\/\/www.itread01.com\/?huajax=1","frontNonce":{"id":"HuFrontNonce","handle":"d9125fec3b"},"userStarted":{"with":"with|3.3.27","on":{"date":"2018-03-27 03:41:18.000000","timezone_type":3,"timezone":"UTC"}},"isWelcomeNoteOn":"","welcomeContent":""};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載） - IT閱讀_files/scripts.min.js.下載"></script>
+<script type="text/javascript" src="./【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載） - IT閱讀_files/wp-embed.min.js.下載"></script>
+
+<!--[if lt IE 9]>
+<script src="/img/css/js/respond.js"></script>
+<![endif]-->
+<div style="display:none"><script type="text/javascript" src="./【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載） - IT閱讀_files/c.js.下載"></script><script src="./【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載） - IT閱讀_files/z_stat.php" language="JavaScript"></script><script src="./【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載） - IT閱讀_files/core.php" charset="utf-8" type="text/javascript"></script><a href="https://www.cnzz.com/stat/website.php?web_id=1275098034" target="_blank" title="站长统计">站长统计</a>
+0.14681386947632</div>
+
+    <!-- Bootstrap core JavaScript ================================================== -->
+        <script src="./【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載） - IT閱讀_files/jquery.min.js(1).下載"></script>
+     
+        <!-- Placed at the end of the document so the pages load faster -->
+        
+
+<script src="./【乾貨】Chrome外掛(擴充套件)開發全攻略（轉載） - IT閱讀_files/highlight.min.js.下載"></script>
+<script>
+function joinUrl(url, concat) {
+  var url1 = url.split('/');
+  var url2 = concat.split('/');
+  var url3 = [ ];
+  for (var i = 0, l = url1.length; i < l; i ++) {
+    if (url1[i] == '..') {
+      url3.pop();
+    } else if (url1[i] == '.') {
+      continue;
+    } else {
+      url3.push(url1[i]);
+    }
+  }
+  for (var i = 0, l = url2.length; i < l; i ++) {
+    if (url2[i] == '..') {
+      url3.pop();
+    } else if (url2[i] == '.') {
+      continue;
+    } else {
+      url3.push(url2[i]);
+    }
+  }
+  return url3.join('/');
+}
+$(document).ready(function() {
+    $('pre').each(function(i, block) {
+        hljs.highlightBlock(block);
+    });
+	var source = $('#source-url').html();
+	if(source.indexOf('segmentfault.com') > 0) {
+		var imgs = $('#main-content').find('img');
+		$.each(imgs, function(index, img) {
+			var data_src = $(img).attr('data-src');
+			data_src = 'https://segmentfault.com' + data_src;
+			console.log(data_src);
+			$(img).attr('src', data_src);
+			// $(img).attr('src', '');
+		});
+	}
+});
+</script></body></html>
